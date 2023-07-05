@@ -1,0 +1,47 @@
+<body>
+  <div class="sidebar">
+    <a class="active" routerLink="/staff/profile">My Profile</a>
+    <a routerLink="/staff/mykids">Kids</a>
+  </div>
+
+  <div class="content">
+    <div class="row profile">
+      <div class="col-12 yellow-box">
+        <div class="image-container">
+          <img
+            src="../../../assets/images/animal3-removebg-preview.png"
+            alt="Your Image"
+          />
+        </div>
+        <h1>WELCOME TUTOR</h1>
+        <div class="table-container">
+         
+          <div class="table-row">
+            <div class="label-cell">Name:</div>
+            <div class="value-cell">{{data.name}}</div>
+          </div>
+          <div class="table-row">
+            <div class="label-cell">Email:</div>
+            <div class="value-cell">{{data.email}}</div>
+          </div>
+          <div class="table-row">
+            <div class="label-cell">Details:</div>
+            <div class="value-cell">{{data.address}} </div>
+          </div>
+          <div class="table-row">
+            <div class="label-cell">Contact:</div>
+            <div class="value-cell">{{data.contact}}</div>
+          </div>
+          <div class="table-row">
+            <div class="label-cell">Adhar:</div>
+            <div class="value-cell">{{data.adharNo}}</div>
+          </div>
+          <div class="table-row">
+            <div class="label-cell"></div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

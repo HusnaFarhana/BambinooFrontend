@@ -1,0 +1,95 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/">Home</a>
+    <a class="active" routerLink="/profile">My Profile</a>
+    <a  routerLink="/mykids"> My Kids</a>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div *ngIf="isLoading" class="text-center my-4">
+        <app-spinner></app-spinner>
+      </div>
+      <form
+        *ngIf="!isLoading"
+        class="form"
+        [formGroup]="form"
+        (submit)="submit()"
+      >
+        <div class="row">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value="{{ data.name }}"
+            formControlName="name"
+          />
+        </div>
+        <div class="row">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            disabled
+            value="{{ data.email }}"
+          />
+        </div>
+        <div class="row">
+          <label for="dob">Date of Birth:</label>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            [value]="data.dob"
+            formControlName="dob"
+          />
+          <div
+            *ngIf="
+              form.controls['dob'].invalid &&
+              (form.controls['dob'].dirty || form.controls['dob'].touched)
+            "
+          >
+            <div *ngIf="form.controls['dob'].errors?.['required']">
+              Date of Birth is required.
+            </div>
+            <div *ngIf="form.controls['dob'].errors?.['futureDate']">
+              Date of Birth cannot be a future date.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <label for="contact">Contact:</label>
+          <input
+            type="text"
+            id="contact"
+            name="contact"
+            value="{{ data.contact }}"
+            formControlName="contact"
+          />
+        </div>
+        <div class="row">
+          <label for="adhar">Adhar Number:</label>
+          <input
+            type="text"
+            id="adhar"
+            name="adhar"
+            value="{{ data.adhar }}"
+            formControlName="adhar"
+          />
+        </div>
+
+        <br />
+        <div class="form-buttons">
+           <button class="glow-on-hover" type="submit">UPDATE</button>
+       
+        <button class="btn btn-primary " routerLink="/profile">Back</button>
+        </div>
+       
+      </form>
+    </div>
+  </div>
+    <img src="../../../assets/images/sun-removebg-preview.png" alt="Image" class="responsive-image">
+
+</body>

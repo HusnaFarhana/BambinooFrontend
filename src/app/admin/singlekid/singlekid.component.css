@@ -1,0 +1,144 @@
+body {
+  overflow-x: hidden;
+}
+.sidebar {
+  margin: 0;
+  padding-top: 63px;
+  width: 200px;
+  background-color: #bdebef;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  top: 80px;
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #9cd5db;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #9cd5db;
+  color: white;
+}
+div.content {
+  margin-top: 132px;
+  margin-left: 238px;
+  height: calc(100vh - 80px);
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0px;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.blue-box {
+  background-color: #bdebef;
+  position: relative;
+  padding: 50px;
+  z-index: 0;
+}
+
+.profile {
+  padding: 50px;
+}
+.kids {
+  padding: 50px;
+}
+
+.leaves {
+position: absolute;
+    top: -104px;
+    left: 818px;
+    width: 150px;
+    height: 280px;
+    object-fit: cover;
+   
+    z-index: 1;
+}
+.borderless-table {
+    margin-left: 20px;
+  width: 100%;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+.borderless-table td {
+  padding: 5px;
+}
+
+.borderless-table td:not(:last-child) {
+  padding-right: 10px;
+}
+@media screen and (max-width: 1023px) {
+  .leaves{
+    position: absolute;
+    top: -104px;
+    left: 300px;
+    width: 150px;
+    height: 280px;
+    object-fit: cover;
+   
+    z-index: 1;
+  }
+}
+.btn1{
+  background-color: #244fa1; /* Green */
+  border: none;
+  color: white;
+  padding: 2px 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 20px;
+}
+.btns{
+  display: flex;
+justify-content: center;
+  gap: 10px;
+}
+.profile-image {
+  position: absolute;
+  top: -82px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  z-index: 1;
+}
+.bottom-right-image {
+     position: absolute;
+    bottom: -9px;
+    right: -17px;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+
+}

@@ -1,0 +1,37 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/admin/adminhome">Home</a>
+    <a routerLink="/admin/kids">Kids</a>
+    <a routerLink="/admin/tutors">Staffs</a>
+    <a routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a class="active" routerLink="/admin/payments">Payments</a>
+  </div>
+
+  <div class="content">
+    <div class="list">
+      <ul>
+        <li>Payment Id</li>
+        <li>User Id</li>
+        <li>User Name</li>
+        <li>Baby Id</li>
+        <li>Amount</li>
+        <li (click)="sortTableByDate()">Date <i class="arrow-icon" [ngClass]="{ 'arrow-up': isDateSortedAsc, 'arrow-down': !isDateSortedAsc }"></i></li>
+      </ul>
+      <ul  *ngFor="let data of  getPlansToShow()">
+        <li data-label="Payment Id">{{data.subscription.paymentid}}</li>
+        <li data-label="User Id">{{data.parent._id}}</li>
+        <li data-label="User Name">{{data.parent.name}}</li>
+        <li data-label="Baby ID">{{data._id}}</li>
+        <li data-label="price">{{data.subscription.id.price}}</li>
+        <li data-label="date">{{ getFormattedDate(data.subscription.date) }}</li>
+      </ul>
+       <div class="pagination">
+            <button [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
+            <span>{{ (currentPage - 1) * pageSize + 1 }} - {{ (currentPage - 1) * pageSize + getPlansToShow().length }} of {{ totalPlans }}</span>
+            <button [disabled]="isLastPage()" (click)="nextPage()">Next</button>
+          </div>
+         </div>
+  </div>
+ 
+</body>

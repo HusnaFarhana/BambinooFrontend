@@ -1,0 +1,145 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #14b9c5">
+  <div class="container-fluid">
+    <a class="navbar-brand d-none d-lg-block" href="#">
+      <img
+        src="../../../assets/images/Logo.png"
+        alt="Logo"
+        class="rounded-circle"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      style="background-color: #14b9c5"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <p class="nav-link active" *ngIf="!adminService.isAdminAuthenticated && userService.isAuthenticated||staffService.isStaffAuthenticated" aria-current="page" >Hi {{name}}</p>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" *ngIf="!adminService.isAdminAuthenticated && !staffService.isStaffAuthenticated " aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="userService.isAuthenticated && !staffService.isStaffAuthenticated"
+            routerLink="/profile"
+            >Profile</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="userService.isAuthenticated && !staffService.isStaffAuthenticated"
+            routerLink="/mykids"
+            >Kids</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!adminService.isAdminAuthenticated && !staffService.isStaffAuthenticated" href="#about-section">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/chat" *ngIf="!adminService.isAdminAuthenticated && !staffService.isStaffAuthenticated && userService.isAuthenticated" href="#" tabindex="-1" aria-disabled="true"
+            >Chat with us</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="logout()"
+            *ngIf="userService.isAuthenticated && !staffService.isStaffAuthenticated"
+            style="color: rgb(255, 255, 255); cursor: pointer"
+            >Log out</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/login"
+            *ngIf="!userService.isAuthenticated && !adminService.isAdminAuthenticated && !staffService.isStaffAuthenticated"
+            style="color: rgb(255, 255, 255)"
+            >Log In</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/signup"
+            *ngIf="!userService.isAuthenticated && !adminService.isAdminAuthenticated && !staffService.isStaffAuthenticated"
+            style="color: rgb(255, 255, 255)"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/adminhome" *ngIf="adminService.isAdminAuthenticated" style="color: rgb(255, 255, 255); cursor: pointer"
+            >My Profile</a
+          >
+        </li>
+ <li class="nav-item">
+          <a routerLink="/admin/kids" class="nav-link"*ngIf="adminService.isAdminAuthenticated" style="color: rgb(255, 255, 255); cursor: pointer"
+            >Kids</a
+          >
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/tutors"*ngIf="adminService.isAdminAuthenticated"style="color: rgb(255, 255, 255); cursor: pointer"
+            >Staff</a
+          >
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/payments" *ngIf="adminService.isAdminAuthenticated" style="color: rgb(255, 255, 255); cursor: pointer"
+            >Payments</a
+          >
+        </li>
+         <li class="nav-item">
+          <a class="nav-link"routerLink="/admin/users"*ngIf="adminService.isAdminAuthenticated" style="color: rgb(255, 255, 255); cursor: pointer"
+            >Users</a
+          >
+        </li>
+         <li class="nav-item">
+          <a class="nav-link"routerLink="/admin/plans" *ngIf="adminService.isAdminAuthenticated" style="color: rgb(255, 255, 255); cursor: pointer"
+            >Plans</a
+          >
+        </li>
+         <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="adminLogout()"
+            *ngIf="adminService.isAdminAuthenticated"
+            style="color: rgb(255, 255, 255); cursor: pointer"
+            >Log out</a
+          >
+        </li>
+          <li class="nav-item">
+          <a class="nav-link"routerLink="/staff/profile" *ngIf="staffService.isStaffAuthenticated" style="color: rgb(255, 255, 255); cursor: pointer"
+            >My Profile</a
+          >
+        </li>
+          <li class="nav-item">
+          <a class="nav-link"routerLink="/staff/mykids" *ngIf="staffService.isStaffAuthenticated" style="color: rgb(255, 255, 255); cursor: pointer"
+            >Kids</a
+          >
+        </li>
+         <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="staffLogout()"
+            *ngIf="staffService.isStaffAuthenticated"
+            style="color: rgb(255, 255, 255); cursor: pointer"
+            >Log out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

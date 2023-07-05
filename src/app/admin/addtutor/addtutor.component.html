@@ -1,0 +1,102 @@
+<body>
+  <div class="sidebar">
+    <a class="active" routerLink="/admin/adminhome">Home</a>
+    <a routerLink="/admin/kids">Kids</a>
+    <a routerLink="/admin/tutors">Staffs</a>
+    <a routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a routerLink="/admin/payments">Payments</a>
+  </div>
+  <div class="content">
+    <div class="container">
+      <form class="form" [formGroup]="form" (submit)="submit()">
+        <div class="row">
+          <div class="field-group">
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" formControlName="name" />
+          </div>
+          <div class="field-group">
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field-group">
+            <label for="password">Password:</label>
+            <input
+              type="text"
+              id="password"
+              name="password"
+              formControlName="password"
+            />
+          </div>
+          <div class="field-group">
+            <label for="address">Address:</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              formControlName="address"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" formControlName="dob" />
+            <div
+              *ngIf="
+                form.controls['dob'].invalid &&
+                (form.controls['dob'].dirty || form.controls['dob'].touched)
+              "
+            >
+              <div *ngIf="form.controls['dob'].errors?.['required']">
+                Date of Birth is required.
+              </div>
+              <div *ngIf="form.controls['dob'].errors?.['futureDate']">
+                Date of Birth cannot be a future date.
+              </div>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="contact">Contact:</label>
+            <input
+              type="text"
+              id="contact"
+              name="contact"
+              formControlName="contact"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field-group">
+            <label for="adharNo">Adhar Number:</label>
+            <input
+              type="text"
+              id="adharNo"
+              name="adharNo"
+              formControlName="adharNo"
+            />
+          </div>
+        </div>
+        <br />
+        <p
+          *ngIf="error"
+          style="
+            color: red;
+            font-weight: 400;
+            font-style: italic;
+            text-align: center;
+          "
+        >
+          Credentials must be valid
+        </p>
+        <div class="buttons">
+          <button class="glow-on-hover" type="submit">UPDATE</button>
+          <button class="btn btn-primary" routerLink="/tutors">Back</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,87 @@
+<body class="form-v9">
+  <div class="page-content">
+    <div class="form-v9-content">
+      <form class="form-detail" [formGroup]="form" (submit)="submit()">
+        <h2>Registration Form</h2>
+        <p *ngIf="error" style="color: red; font-weight: 400; font-style: italic; text-align: center;">
+          Credentials must be valid
+        </p>
+        <div class="row mb-4">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" formControlName="name" id="name" class="form-control" />
+              <label class="form-label" for="name">Name</label>
+            </div>
+            <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">
+              <div class="errortext"*ngIf="form.controls['name'].errors?.['required']">Name is required.</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="date" id="dob" formControlName="dob" class="form-control" />
+              <label class="form-label" for="dob">Date of birth</label>
+              <div
+                *ngIf="
+                  form.controls['dob'].invalid &&
+                  (form.controls['dob'].dirty || form.controls['dob'].touched)
+                "
+              >
+                <div class="errortext" *ngIf="form.controls['dob'].errors?.['required']">Date of Birth is required.</div>
+                <div class="errortext"*ngIf="form.controls['dob'].errors?.['futureDate']">Date of Birth cannot be a future date.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="email" formControlName="email" class="form-control" />
+              <label class="form-label" for="email">Email</label>
+            </div>
+            <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)">
+              <div class="errortext"*ngIf="form.controls['email'].errors?.['required']">Email is required.</div>
+              <div class="errortext"*ngIf="form.controls['email'].errors?.['email']">Invalid email format.</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="password" id="password" formControlName="password" class="form-control" />
+              <label class="form-label" for="password">Password</label>
+            </div>
+            <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)">
+              <div class="errortext"*ngIf="form.controls['password'].errors?.['required']">Password is required.</div>
+              <div class="errortext"*ngIf="form.controls['password'].errors?.['maxlength']">Password cannot exceed 5 characters.</div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="contact" formControlName="contactnum" class="form-control" />
+              <label class="form-label" for="contact">Contact Number</label>
+            </div>
+            <div *ngIf="form.controls['contactnum'].invalid && (form.controls['contactnum'].dirty || form.controls['contactnum'].touched)">
+              <div class="errortext"*ngIf="form.controls['contactnum'].errors?.['required']">Contact Number is required.</div>
+              <div class="errortext" *ngIf="form.controls['contactnum'].errors?.['minlength']">Contact Number should have at least 10 characters.</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="adhar" formControlName="adhar" class="form-control" />
+              <label class="form-label" for="adhar">Adhar Number</label>
+            </div>
+            <div *ngIf="form.controls['adhar'].invalid && (form.controls['adhar'].dirty || form.controls['adhar'].touched)">
+              <div class="errortext" *ngIf="form.controls['adhar'].errors?.['required']">Adhar Number is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row-last">
+          <input type="submit" name="register" class="register" value="Register" />
+        </div>
+        <div class="already">
+          <a routerLink="/login">Already have an account?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,36 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/admin/adminhome">Home</a>
+    <a class="active" routerLink="/admin/kids">Kids</a>
+    <a routerLink="/admin/tutors">Staffs</a>
+    <a routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a routerLink="/admin/payments">Payments</a>
+  </div>
+  <div class="content">
+
+
+
+    <div class="list">
+      <ul>
+        <li>Name</li>
+        <li>Email</li>
+        <li>Contact</li>
+        <li>No. of Kids</li>
+        <li>Allot</li>
+      </ul>
+      <ul *ngFor=" let staff of staffs">
+        <li data-label="Name" >{{staff.name}}</li>
+        <li data-label="D.O.B">{{staff.email}}</li>
+        <li data-label="Gender">{{staff.contact}}</li>
+        <li data-label="Tutor">{{staff.kids.length}}</li>
+        <li data-label="More"><button class="allotbutton" (click)="allotkid(staff._id)">Allot</button></li>
+      
+      </ul>
+     
+
+     
+    </div>
+
+  </div>
+</body>

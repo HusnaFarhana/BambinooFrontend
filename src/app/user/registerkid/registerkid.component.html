@@ -1,0 +1,166 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/">Home</a>
+    <a routerLink="/profile">My Profile</a>
+    <a class="active" routerLink="/mykids">Kids</a>
+  </div>
+
+  <div class="content">
+ <div class="items">
+      <h4>REGISTER YOUR KID</h4>
+      <div class="form-class">
+        <form (ngSubmit)="submit()" [formGroup]="form">
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label"
+              >Name</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Enter Name"
+                formControlName="name"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label"
+              >Image</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="file"
+                id="image"
+                class="form-control"
+                (change)="onselectFile($event)"
+                formControlName="image"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dob" class="col-sm-2 col-form-label"
+              >Date of birth</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="date"
+                name="dob"
+                id="dob"
+                class="form-control"
+                placeholder="date of birth"
+                formControlName="dob"
+              />
+              <div
+        *ngIf="
+          form.controls['dob'].invalid &&
+          (form.controls['dob'].dirty || form.controls['dob'].touched)
+        "
+      >
+        <div style="color: red;"*ngIf="form.controls['dob'].errors?.['required']">Date of Birth is required.</div>
+<div style="color: red;" *ngIf="form.controls['dob'].errors?.['futureDate']">Date of Birth cannot be a future date.</div>
+  </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="gender"
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  value="male"
+                  checked
+                />
+                <label class="form-check-label" for="exampleRadios1">
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="gender"
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  value="female"
+                />
+                <label class="form-check-label" for="exampleRadios2">
+                  Female
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="relation" class="col-sm-2 col-form-label"
+              >Relation</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                name="relation"
+                id="relation"
+                placeholder="Relation"
+                formControlName="relation"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="medical" class="col-sm-2 col-form-label"
+              >Medication details</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                name="medical"
+                id="medical"
+                placeholder="Medical details"
+                formControlName="medical"
+              />
+            </div>
+          </div>
+      
+          <div class="cardpart row">
+            
+            <div class="card" *ngFor="let plan of plans">
+              <label [for]="'card' + plan._id">
+                <h3>Name: {{ plan.name }}</h3>
+                <h3>Recommended Age Group: {{ plan.ageGroup }}</h3>
+                <p>{{ plan.description }}</p>
+                <h3>{{ plan.price }}/Month only</h3>
+              </label>
+              <input
+                type="radio"
+                formControlName="plan"
+                [id]="'card' + plan._id"
+                name="plan"
+                [value]="{ id: plan._id, price: plan.price }"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-10 col-lg-12">
+              <p *ngIf="error" style="color: red;font-weight: 400;font-style: italic; text-align: center;">Credentials must be valid</p>
+
+              <input
+                type="submit"
+                class="form-control"
+                id="register"
+                value="Register"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+   </div>
+  </div>
+</body>

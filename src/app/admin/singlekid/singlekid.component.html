@@ -1,0 +1,70 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/admin/adminhome">Home</a>
+    <a class="active" routerLink="/admin/kids">Kids</a>
+    <a routerLink="/admin/tutors">Staffs</a>
+    <a routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a routerLink="/admin/payments">Payments</a>
+  </div>
+  <div class="content">
+    <div class="row profile">
+      <div class="col-12 blue-box">
+        <img
+          src="{{data.image}}"
+          alt="Profile Image"
+          class="profile-image"
+        />
+        <img
+          src="../../../assets/images/green-vine-plant-common-ivy-png-favpng-dvABEvMFr4LT98zM6QfTbKC3q-removebg-preview.png"
+          alt=""
+          class="leaves"
+        />
+        <table class="borderless-table">
+          <tr>
+            <td>Name</td>
+            <td>{{ data.name }}</td>
+          </tr>
+          <tr>
+            <td>D.O.B</td>
+            <td>{{ data.dob }}</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>{{ data.gender }}</td>
+          </tr>
+          <tr>
+            <td>Parent</td>
+            <td>{{ data.parent.name }}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{ data.parent.contact }}</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>{{ data.parent.address }}</td>
+          </tr>
+
+          <tr>
+            <td>Medications</td>
+            <td>{{ data.medications }}</td>
+          </tr>
+          <tr>
+            <td>Mentor</td>
+            <td>{{data.staff.name}}</td>
+          </tr>
+        </table>
+        <div class="btns">
+            <button class="btn1" (click)="mealplan(data._id)">Meal Plan</button>
+            <button class="btn1" (click)="allotmentor(data._id)">Allot Mentor</button>
+        </div>
+         <img
+          src="../../../assets/images/animal2-removebg-preview.png"
+          alt="Bottom Right Image"
+          class="bottom-right-image"
+        />
+      </div>
+    </div>
+  </div>
+</body>

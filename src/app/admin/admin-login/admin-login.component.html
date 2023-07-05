@@ -1,0 +1,24 @@
+<body>
+  <div class="loginBox">
+  <img
+    class="user"
+    src="https://i.ibb.co/yVGxFPR/2.png"
+    height="100px"
+    width="100px"
+  />
+  <div *ngIf="error" class="alert alert-danger text-center">
+    Invalid Credentials
+  </div>
+
+  <h3>Admin Login</h3>
+  <form [formGroup]="form" (submit)="submit()">
+    <div class="inputBox">
+      <input id="uname" type="text" name="Email"formControlName="email" placeholder="Email" />
+      <input id="pass" type="password" name="Password" formControlName="password"placeholder="Password" />
+    </div>
+    <input type="submit" name="" value="Login" />
+  </form>
+ 
+</div>
+
+</body>

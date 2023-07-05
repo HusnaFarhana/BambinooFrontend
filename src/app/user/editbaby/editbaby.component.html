@@ -1,0 +1,50 @@
+<div *ngIf="baby" class="baby-profile">
+  <form [formGroup]="form" (submit)="submit()">
+    <img
+      src="../../../assets/images/41136d4a30ba3cdf15dd58e86bc4144b.jpg"
+      alt="Baby Avatar"
+      class="avatar"
+    />
+
+    <input type="text" formControlName="name"value="{{ baby.name }}" />
+    <input type="date"formControlName="dob" [value]="baby.dob"/>
+<div
+        *ngIf="
+          form.controls['dob'].invalid &&
+          (form.controls['dob'].dirty || form.controls['dob'].touched)
+        "
+      >
+        <div *ngIf="form.controls['dob'].errors?.['required']">Date of Birth is required.</div>
+<div *ngIf="form.controls['dob'].errors?.['futureDate']">Date of Birth cannot be a future date.</div>
+  </div>
+    <div class="details">
+      <h3 class="section-title">Personal Details</h3>
+      <ul>
+        <li>
+          <strong>Gender:</strong>
+          <select name="gender" id="gender" formControlName="gender" [value]="baby.gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </li>
+        <li><strong>Medication:</strong><input type="text"formControlName="medical" value="{{baby.medications}}"></li>
+        <li><strong>Parent:</strong> {{ baby.parent.name }}</li>
+        <li><strong>Relation:</strong> {{ baby.relation }}</li>
+        <li><strong>Subscription:</strong> {{ baby.subscription.id.name }}</li>
+        <input type="text" formControlName="id" hidden value="{{baby._id}}">
+      </ul>
+    </div>
+    <div class="activities">
+      <h3 class="section-title">Options</h3>
+      <ul>
+        <li>
+          <button class="btn btn-primary" type="submit" >
+            Update
+          </button>
+        </li>
+		            <p *ngIf="error" style="color: red;font-weight: 400;font-style: italic; text-align: center;">Credentials must be valid</p>
+
+      </ul>
+    </div>
+  </form>
+</div>

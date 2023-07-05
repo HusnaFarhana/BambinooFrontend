@@ -1,0 +1,87 @@
+.baby-profile {
+  width: 400px;
+  height: 100%;
+  margin-right: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 24px;
+  color: #333;
+}
+
+.dob {
+  font-size: 14px;
+  color: #666;
+}
+
+.section-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Additional Styling */
+.baby-profile {
+  background-image: url('../../../assets/images/bgm5.avif');
+   /* background-repeat: no-repeat; 
+   background-size: cover;  */
+  background-position: center; 
+  background-repeat: repeat; 
+}
+
+.avatar {
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.activities {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.activities ul li {
+  position: relative;
+  padding-left: 25px;
+}
+
+.activities ul li:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  background-image: url('../../../assets/images/Black_colour.jpg');
+  background-size: cover;
+}
+

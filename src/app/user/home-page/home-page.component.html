@@ -1,0 +1,155 @@
+<div class="col-12 mb-10 twins">
+  <div class="d-flex flex-column">
+    <img src="../../../assets/images/homeHeader.jpg" alt="" />
+  </div>
+</div>
+
+<div class="div2">
+  <div class="row h-100 container">
+
+
+
+    <div *ngFor="let plan of plans" class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100 carditem">
+      <div class="card card1 card-span h-100 text-white wcheck bg-transparent">
+        <div class="cardimgdiv">
+          <img
+            class="img-fluid cardimg"
+            src="../../../assets/images/Logo.png"
+            alt="..."
+          />
+        </div>
+
+        <div class="card-img-overlay ps-0">
+          <a href="" class="btn btn-transparent stretched-link"></a>
+        </div>
+        <div class="card-body ps-0 bg-200">
+          <h3>{{plan.name}}</h3>
+          <h5 class="fw-bold text-1000 text-dark ps-4">AGE GROUP:</h5>
+          <div class="fw-light">
+            <span class="text-dark ps-5">{{plan.ageGroup}}</span>
+            <h6 class="text-dark">
+             {{plan.description}}
+            </h6>
+            <h3 class="text-dark">
+             {{plan.price}} /month only!
+            </h3>
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+<div class="div3">
+  <div class="textpart">
+    <h4>Trust your Child only with the Best Day Care</h4>
+    <h5>Early Years Matter</h5>
+  </div>
+  <!-- ----------------------- -->
+  <div class="row h-100 container">
+    <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
+      <div class="card card-span h-100 text-white wcheck bg-transparent">
+        <img src="../../../assets/images/img2.PNG" alt="" />
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
+      <div class="card card-span h-100 text-white wcheck bg-transparent">
+        <img src="../../../assets/images/img3.PNG" alt="" />
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
+      <div class="card card-span h-100 text-white wcheck bg-transparent">
+        <img src="../../../assets/images/img4.PNG" alt="" />
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
+      <div class="card card-span h-100 text-white wcheck bg-transparent">
+        <img src="../../../assets/images/img5.PNG" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row video-container">
+  <video
+    src="../../../assets/images/Bambino DayCare.mp4"
+  
+    autoplay
+    loop
+    muted
+    class="video"
+  ></video>
+</div>
+
+<div class="green">
+  <img src="../../../assets/images/div.light-green-bg (1).png" alt="" />
+  <img src="../../../assets/images/Section.png" alt="" />
+</div>
+
+<!-- <div class="check">
+  <div class="check1">
+    <div class="imgkids">
+      <img src="../../../assets/images/collage.png.png" alt="" />
+    </div>
+    <div class="imgtxt">
+      <img src="../../../assets/images/div.white-bg.png" alt="" />
+    </div>
+  </div>
+</div> -->
+
+<div id="about-section" class="div4">
+  <div class="orange">
+    <div class="giraffe">
+      <img src="../../../assets/images/footer-cta.png.png" alt="" />
+    </div>
+
+    <div class="orangetext">
+      <p>
+        Enrolling your child in ABC Daycare provides a safe and nurturing
+        environment where your child can flourish. Our dedicated staff members
+        are trained professionals who prioritize the well-being and development
+        of each child.With a focus on individualized attention, we tailor our
+        activities and learning experiences to meet the unique needs and
+        interests of every child. Our stimulating curriculum fosters cognitive,
+        social, and emotional growth through age-appropriate activities and
+        educational materials.
+      </p>
+      <div *ngIf="!userService.isAuthenticated">
+        <h4>Sign Up to register your kid</h4>
+        <button class="btn btn-primary" routerLink="/signup">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="more">
+  <div class="bgm">
+    <img src="../../../assets/images/div.et_pb_section.png" alt="" />
+  </div>
+</div>
+<div class="div5">
+  <div class="grey">
+    <div class="grey-head">
+      <h3>
+        What parents are <br />
+        saying
+      </h3>
+    </div>
+    <div class="grey-text">
+      <p>
+        Bambino has always been a home away from home for both my kids. My son,
+        now, 3.5 years and daughter who is 1.5 years old, have been a part of
+        the daycare family since they were 6 months old! Very affectionate staff
+        and wonderful ambience for the kids to learn and grow. Thanks for being
+        there and supporting many working moms like me.
+      </p>
+    </div>
+    <div class="grey-foot">
+      <h5>Vidya Raghuvir Kota Mother of Advait and Tvisha</h5>
+    </div>
+  </div>
+</div>

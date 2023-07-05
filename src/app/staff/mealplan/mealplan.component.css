@@ -1,0 +1,101 @@
+body {
+  overflow-x: hidden;
+}
+.sidebar {
+  margin: 0;
+  padding-top: 63px;
+  width: 200px;
+  background-color: #bdebef;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  top: 80px;
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #9cd5db;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #9cd5db;
+  color: white;
+}
+div.content {
+  margin-top: 132px;
+  margin-left: 238px;
+  height: calc(100vh - 80px);
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0px;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.blue-box {
+  background-color: #fff391;
+  position: relative;
+  padding: 50px;
+  z-index: 0;
+}
+
+.profile {
+  padding: 50px;
+  padding-right: 120px;
+}
+
+
+.borderless-table {
+    margin-left: 20px;
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+.borderless-table td {
+  padding: 5px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.borderless-table td:not(:last-child) {
+  padding-right: 10px;
+}
+.bottom-right-image {
+     position: absolute;
+    bottom: -25px;
+    right: 28px;
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+
+}
+.blue-box h2{
+ font-size: 30px;
+    font-weight: 500;
+}

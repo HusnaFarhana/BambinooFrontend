@@ -1,0 +1,40 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/admin/adminhome">Home</a>
+    <a routerLink="/admin/kids">Kids</a>
+    <a c routerLink="/admin/tutors">Staffs</a>
+    <a lass="active"routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a routerLink="/admin/payments">Payments</a>
+  </div>
+  <div class="content">
+
+
+
+    <div class="list">
+      <ul>
+        <li>ID</li>
+        <li>Name <span class="sort-icon" [ngClass]="{'asc': sortDirection === 'asc', 'desc': sortDirection === 'desc'}" (click)="toggleSortDirection()"></span></li>
+        <li>Email</li>
+        <li>D.O.B</li>
+        <li>contact</li>
+      </ul>
+      <ul *ngFor="let user of getUsersToShow()">
+        <li data-label="ID">{{user._id}}</li>
+        <li data-label="Name">{{user.name}}</li>
+        <li data-label="Email">{{user.email}}</li>
+        <li data-label="D.O.B">{{user.dob}}</li>
+        <li data-label="Contact">{{user.contact}}</li>
+      
+      </ul>
+       <div class="pagination">
+            <button [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
+            <span>{{ (currentPage - 1) * pageSize + 1 }} - {{ (currentPage - 1) * pageSize + getUsersToShow().length }} of {{ totalUsers }}</span>
+            <button [disabled]="isLastPage()" (click)="nextPage()">Next</button>
+          </div>
+
+     
+    </div>
+
+  </div>
+</body>

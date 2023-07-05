@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding-top: 145px;
+  width: 200px;
+  background-color: #bdebef;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #9cd5db;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #9cd5db;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+  z-index: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0px;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  .image-container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .profile {
+    padding-top: 140px !important;
+  }
+}
+
+.yellow-box {
+  background-color: #fff391;
+  position: relative;
+  padding: 50px;
+}
+
+.yellow-box h1 {
+  font-family: fantasy;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 30%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.profile {
+  padding: 50px;
+}
+
+.card-list {
+  width: 100%;
+}
+
+.card {
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  position: relative;
+}
+
+.card .zmdi {
+  color: white;
+  font-size: 28px;
+  opacity: 0.3;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+}
+
+.card .stat {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 8px;
+  margin-top: 25px;
+  padding: 10px 10px 0;
+  text-transform: uppercase;
+}
+
+.card .title {
+  display: inline-block;
+  font-size: 15px;
+  padding: 10px 10px 0;
+  text-transform: uppercase;
+}
+
+.card .value {
+  font-size: 28px;
+  padding: 0 10px;
+}
+
+.card.blue {
+  background-color: #2298f1;
+}
+
+.card.green {
+  background-color: #66b92e;
+}
+
+.card.orange {
+  background-color: #da932c;
+}
+
+.card.red {
+  background-color: #d65b4a;
+}
+
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.table-row {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.label-cell {
+  flex-basis: 30%;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.value-cell {
+  flex-basis: 70%;
+  padding: 8px;
+  border: 1px solid #ccc;
+}

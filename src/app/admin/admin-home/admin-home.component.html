@@ -1,0 +1,71 @@
+<body>
+  <div class="sidebar">
+    <a class="active" routerLink="/admin/adminhome">Home</a>
+    <a routerLink="/admin/kids">Kids</a>
+    <a routerLink="/admin/tutors">Staffs</a>
+    <a routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a routerLink="/admin/payments">Payments</a>
+  </div>
+
+  <div class="content">
+    <div class="row profile">
+      <div class="col-12 yellow-box">
+        <div class="image-container">
+          <img
+            src="../../../assets/images/animal3-removebg-preview.png"
+            alt="Your Image"
+          />
+        </div>
+        <h1>WELCOME TO THE ADMIN PAGE</h1>
+
+        <div>
+          <div class="card-list">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card blue">
+                  <div class="title">All Users</div>
+                  <i class="zmdi zmdi-upload"></i>
+                  <div class="value">{{data.users}}</div>
+                  <div class="stat"><b>13</b>% increase</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card green">
+                  <div class="title">All Kids</div>
+                  <i class="zmdi zmdi-upload"></i>
+                  <div class="value">{{data.kids}}</div>
+                  <div class="stat"><b>4</b>% increase</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card orange">
+                  <div class="title">All Staffs</div>
+                  <i class="zmdi zmdi-download"></i>
+                  <div class="value">{{data.staffs}}</div>
+                  <div class="stat"><b>13</b>% decrease</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card red">
+                  <div class="title">All Plans</div>
+                  <i class="zmdi zmdi-download"></i>
+                  <div class="value">{{data.plans}}</div>
+                  <div class="stat"><b>13</b>% decrease</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card pink">
+                  <div class="title">Total Revenue</div>
+                  <i class="zmdi zmdi-download"></i>
+                  <div class="value">{{data.totalRevenue}} Rs</div>
+                  <div class="stat"><b>13</b>% decrease</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

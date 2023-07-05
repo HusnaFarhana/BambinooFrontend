@@ -1,0 +1,50 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/">Home</a>
+    <a routerLink="/profile">My Profile</a>
+    <a class="active" routerLink="/mykids">My Kids</a>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="txtbtn">
+        <button class="btn btn-primary" routerLink="/register">
+          Register a Kid
+        </button>
+      </div>
+      <div *ngIf="!empty" class="div2">
+        <div class="list">
+          <ul>
+            <li>Image</li>
+            <li>Name</li>
+            <li>D.O.B</li>
+            <li>Gender</li>
+            <li>Parent</li>
+            <li>Relation</li>
+            <li>Options</li>
+          </ul>
+          <ul *ngIf="empty">Register Now</ul>
+          <ul *ngFor="let kid of getKidsToShow()">
+            <li data-label="Image"><img src="{{kid.image}}" style="width: 70px;height: 70px; border-radius: 100%;" alt="image"></li>
+            <li data-label="Name">{{kid.name}}</li>
+            <li data-label="D.O.B">{{kid.dob}}</li>
+            <li data-label="Gender">{{kid.gender}}</li>
+            <li data-label="Parent">{{kid.parent.name}}</li>
+            <li data-label="Relation">{{kid.relation}}</li>
+            <li data-label="Options">
+              <button (click)="kidprofile(kid._id)" class="btn1">View more</button>
+            </li>
+          </ul>
+          <div class="pagination">
+            <button [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
+            <span>{{ (currentPage - 1) * pageSize + 1 }} - {{ (currentPage - 1) * pageSize + getKidsToShow().length }} of {{ totalKids }}</span>
+            <button [disabled]="isLastPage()" (click)="nextPage()">Next</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="error">
+        <div class="alert alert-danger">{{ error }}</div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,42 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/">Home</a>
+    <a class="active" routerLink="/profile">My Profile</a>
+    <a routerLink="/mykids">My Kids</a>
+  </div>
+
+  <div class="content">
+    <div class="row profile">
+      <div class="col-lg-6 yellow-box">
+        <div class="image-container">
+          <img
+            src="../../../assets/images/footer-cta.png.png"
+            alt="Your Image"
+          />
+        </div>
+        <div class="user-details">
+          <div class="user-image">
+            <img
+              src="../../../assets/images/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
+              alt="User Image"
+            />
+          </div>
+          <div class="user-info">
+            <h2 class="user-name">{{ data.name }}</h2>
+            <p class="user-email">{{ data.email }}</p>
+            <br />
+
+            <p class="user-bio">
+              D.O.B: {{ data.dob }}
+              <br />
+              Contact: {{ data.contact }}
+              <br />
+              Adhar: {{ data.adhar }}
+            </p>
+            <button class="btn btn-success" routerLink="/edit">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

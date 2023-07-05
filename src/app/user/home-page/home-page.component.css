@@ -1,0 +1,124 @@
+.twins {
+  width: 100%;
+  z-index: -1;
+  position: relative;
+  margin-top: -4rem;
+}
+.card1 {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  width: 15rem;
+  padding-left: 1.5rem;
+  padding-top: 2rem;
+}
+.cardimg {
+  width: 7rem;
+  height: 7rem;
+}
+.cardimgdiv {
+  padding-left: 2.5rem;
+}
+.div3 {
+  padding-top: 2rem;
+}
+.textpart {
+  text-align: center;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Set the aspect ratio (16:9) based on your video's aspect ratio */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.carditem {
+  padding-top: 3rem;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 769px) {
+  .container {
+    margin-left: 5%;
+  }
+}
+@media (max-width: 768px) {
+  .div2 {
+    padding-left: 60px;
+  }
+}
+
+.green img {
+  width: 100%;
+}
+.div4 {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+.orange {
+  width: 100%;
+  background-color: #ffbc1c;
+  height: 250px;
+  padding-left: 50px;
+  display: flex;
+  justify-content:space-evenly ;
+}
+.giraffe img {
+  width: 138px;
+  height: 264px;
+  position: relative;
+  margin-top: -100px;
+}
+.orangetext{
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.more{
+  padding-top: 40px;
+}
+.bgm {
+  width: 100%;
+  height: auto;
+}
+
+.bgm img {
+  max-width: 100%;
+  max-height: 100%;
+   
+}
+.grey{
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+.div5{
+  padding-top: 50px;
+}
+.grey-head {
+  text-align: center;
+}
+.grey-foot {
+  text-align: center;
+}
+/* .imgkids img{
+width: 625px;
+}
+.imgtxt img{
+width: 600px;
+}
+.check{
+  padding: 20px;
+}
+.check1{
+  padding: 20px;
+  background-color: #ffee60;
+  display: flex;
+  justify-content: space-between;
+  
+} */

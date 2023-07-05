@@ -1,0 +1,28 @@
+
+.navbar {
+  background-color: #14b9c5;
+  z-index: 1;
+  height: 80px;
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+}
+.nav-link {
+  color: #ffffff !important;
+}
+
+
+.rounded-circle {
+  width: 125px;
+  height: 125px;
+  margin-top: 50%;
+  margin-left: 1rem;
+ 
+}
+
+.navcontent {
+  padding-left: 1rem;
+}
+

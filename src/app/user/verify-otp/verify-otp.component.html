@@ -1,0 +1,28 @@
+<body class="form-v9">
+  <div class="page-content">
+    <div class="form-v9-content">
+		<form class="form-detail" [formGroup]="form" (submit)="submit()">
+			<h2>Verify OTP</h2>
+			<div class="form-row-total">
+				<div class="form-row">
+					<input
+					type="text"
+					formControlName="otp"
+					name="otp"
+					id="your-email"
+					class="input-text"
+					placeholder="Enter OTP"
+					/>
+				</div>
+			</div>
+			
+			<div class="form-row-last">
+				<input type="submit" name="login" class="register" value="Verify" />
+			</div>
+		</form>
+    </div>
+</div>
+<div *ngIf="error">
+  <div class="alert alert-danger">{{ error }}</div>
+</div>
+</body>

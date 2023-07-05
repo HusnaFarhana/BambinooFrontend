@@ -1,0 +1,44 @@
+
+
+<body>
+  <div class="sidebar">
+    <a routerLink="/admin/adminhome">Home</a>
+    <a class="active" routerLink="/admin/kids">Kids</a>
+    <a routerLink="/admin/tutors">Staffs</a>
+    <a routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a routerLink="/admin/payments">Payments</a>
+  </div>
+  <div class="content">
+    <div class="list">
+      <ul>
+         <li>Image</li>
+        <li>Name  <span class="sort-icon" [ngClass]="{'asc': sortDirection === 'asc', 'desc': sortDirection === 'desc'}" (click)="toggleSortDirection()"></span></li>
+        <li>D.O.B</li>
+        <li>Gender</li>
+        <li>Tutor</li>
+        <li>Active</li>
+        <li>More</li>
+      </ul>
+      <ul *ngFor="let kid of getKidsToShow()">
+        <li data-label="Image"><img src="{{kid.image}}" style="width: 70px;height: 70px; border-radius: 100%;" alt="image"></li>
+        <li data-label="Name">{{ kid.name }}</li>
+        <li data-label="D.O.B">{{ kid.dob }}</li>
+        <li data-label="Gender">{{ kid.gender }}</li>
+        <li data-label="Tutor">{{ kid.staff?.name }}</li>
+        <li data-label="Tutor">{{ kid.active }}</li>
+        <li data-label="More">
+          <button (click)="babyprofile(kid._id)" class="viewbutton">
+            View
+          </button>
+        </li>
+      </ul>
+       <div class="pagination">
+            <button [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
+            <span>{{ (currentPage - 1) * pageSize + 1 }} - {{ (currentPage - 1) * pageSize + getKidsToShow().length }} of {{ totalKids }}</span>
+            <button [disabled]="isLastPage()" (click)="nextPage()">Next</button>
+          </div>
+    </div>
+  </div>
+  <img src="../../../assets/images/bird2-removebg-preview.png" alt="Image" class="responsive-image">
+</body>

@@ -1,0 +1,50 @@
+<body>
+  <div class="panda">
+    <div class="ear"></div>
+    <div class="face">
+      <div class="eye-shade"></div>
+      <div class="eye-white">
+        <div class="eye-ball"></div>
+      </div>
+      <div class="eye-shade rgt"></div>
+      <div class="eye-white rgt">
+        <div class="eye-ball"></div>
+      </div>
+      <div class="nose"></div>
+      <div class="mouth"></div>
+    </div>
+    <div class="body"></div>
+    <div class="foot">
+      <div class="finger"></div>
+    </div>
+    <div class="foot rgt">
+      <div class="finger"></div>
+    </div>
+  </div>
+  <form [formGroup]="form" (submit)="submit()">
+    <div class="hand"></div>
+
+    <div class="hand rgt"></div>
+    <h1>Bambino Login</h1>
+
+    <p *ngIf="error" style="color: red; font-style: italic">
+      Invalid Credentials
+    </p>
+
+    <div class="form-group">
+      <input required="required" class="form-control" formControlName="email" />
+      <label class="form-label">Email </label>
+    </div>
+    <div class="form-group">
+      <input
+        id="password"
+        type="password"
+        required="required"
+        class="form-control"
+        formControlName="password"
+      />
+      <label class="form-label">Password</label>
+      <button class="btn">Login</button>
+    </div>
+  </form>
+</body>

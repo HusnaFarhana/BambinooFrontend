@@ -1,0 +1,151 @@
+body{
+  overflow-x: hidden;
+}
+.sidebar {
+
+  margin: 0;
+  padding-top: 63px;/*--------*/
+  width: 200px;
+  background-color: #bdebef;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  top: 80px; /*--------*/
+  left: 0; 
+}
+
+
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #9cd5db;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #9cd5db;
+  color: white;
+}
+div.content {
+  margin-top: 80px; /* Height of the navbar */
+  margin-left: 200px; /* Width of the sidebar */
+  height: calc(100vh - 80px); /* Adjust the height as needed */
+  
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0px;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  .image-container {
+    max-width: 100%;
+  }
+}
+.yellow-box{
+  background-color: #fff391;
+    position: relative; /* Add this line */
+  padding: 50px;
+  z-index: 0;
+
+}
+.yellow-box h1{
+  font-family: fantasy;
+}
+.image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 30%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+.profile {
+  padding: 50px;
+}
+
+.card-list {
+	width: 100%;
+}
+
+.card {
+	border-radius: 8px;
+	color: white;
+	padding: 10px;
+	position: relative;
+	z-index: -1;
+
+	.zmdi {
+		color: white;
+		font-size: 28px;
+		opacity: 0.3;
+		position: absolute;
+		right: 13px;
+		top: 13px;
+	}
+	
+	.stat {
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		font-size: 8px;
+		margin-top: 25px;
+		padding: 10px 10px 0;
+		text-transform: uppercase;
+	}
+	
+	.title {
+		display: inline-block;
+		font-size: 15px;
+		padding: 10px 10px 0;
+		text-transform: uppercase;
+	}
+	
+	.value {
+		font-size: 28px;
+		padding: 0 10px;
+	}
+	
+	&.blue {
+		background-color: #2298F1;
+	}
+	
+	&.green {
+		background-color: #66B92E;
+	}
+	
+	&.orange {
+		background-color: #DA932C;
+	}
+	
+	&.red {
+		background-color: #D65B4A;
+	}
+  &.pink {
+		background-color: #b744a2;
+	}
+}

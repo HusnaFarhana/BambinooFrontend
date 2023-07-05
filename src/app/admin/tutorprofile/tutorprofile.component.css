@@ -1,0 +1,276 @@
+body {
+  overflow-x: hidden;
+}
+.sidebar {
+  margin: 0;
+  padding-top: 63px;
+  width: 200px;
+  background-color: #bdebef;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  top: 80px;
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #9cd5db;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #9cd5db;
+  color: white;
+}
+div.content {
+  margin-top: 132px;
+  margin-left: 238px;
+  height: calc(100vh - 80px);
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0px;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.blue-box {
+  background-color: #bdebef;
+  position: relative;
+  padding: 50px;
+  z-index: 0;
+}
+
+.profile {
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.kids {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-top: 35px;
+}
+
+.leaves {
+position: absolute;
+    top: -104px;
+    left: 818px;
+    width: 150px;
+    height: 280px;
+    object-fit: cover;
+   
+    z-index: 1;
+}
+.borderless-table {
+    margin-left: 20px;
+  width: 100%;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+.borderless-table td {
+  padding: 5px;
+}
+
+.borderless-table td:not(:last-child) {
+  padding-right: 10px;
+}
+@media screen and (max-width: 1023px) {
+  .leaves{
+    position: absolute;
+    top: -104px;
+    left: 300px;
+    width: 150px;
+    height: 280px;
+    object-fit: cover;
+   
+    z-index: 1;
+  }
+}
+.btn1{
+  background-color: #244fa1; /* Green */
+  border: none;
+  color: white;
+  padding: 2px 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 20px;
+}
+.btns{
+  display: flex;
+justify-content: center;
+  gap: 10px;
+}
+.profile-image {
+  position: absolute;
+  top: -82px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  z-index: 1;
+}
+.bottom-right-image {
+     position: absolute;
+    bottom: -9px;
+    right: -17px;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+.show {
+  display: block;
+}
+
+.list ul:nth-child(odd) {
+  background-color:#ddd;
+}
+
+.list ul:nth-child(even) {
+  background-color:#fff;
+}
+
+
+@media screen and (min-width:600px) {
+  
+  .list {
+    display:table;
+    margin:1em;
+    width: 80%;
+  }
+ 
+  .list ul {
+    display:table-row;
+  }
+  
+  .list ul:first-child li {
+    background-color:#14b9c5;
+    color:#fff;
+  }
+  
+  .list ul > li {
+    display:table-cell;
+    padding:.5em 1em;
+  }
+  
+}
+
+
+@media screen and (max-width:599px) {
+  
+  .list ul {
+    border:solid 1px #ccc;
+    display:block;
+    list-style:none;
+    margin:1em;
+    padding:.5em 1em;
+  }
+  
+  .list ul:first-child {
+    display:none;
+  }
+  
+  .list ul > li {
+    display:block;
+    padding:.25em 0;
+  }
+  
+  .list ul:nth-child(odd) > li + li {
+    border-top:solid 1px #ccc;
+  }
+  
+  .list ul:nth-child(even) > li + li {
+    border-top:solid 1px #eee;
+  }
+  
+  .list ul > li:before {
+    color:#000;
+    content:attr(data-label);
+    display:inline-block;
+    font-size:75%;
+    font-weight:bold;
+    text-transform:capitalize;
+    vertical-align:top;
+    width:50%;
+  }
+  
+  .list p {
+    margin:-1em 0 0 50%;
+  }
+  
+}
+
+
+@media screen and (max-width:349px) {
+    
+  .list ul > li:before {
+    display:block;
+  }
+  
+  .list p {
+    margin:0;
+  }
+  
+} 
+.viewbutton{
+
+  background-color: #244fa1; 
+  border: none;
+  color: white;
+  padding: 2px 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 20px;
+}
