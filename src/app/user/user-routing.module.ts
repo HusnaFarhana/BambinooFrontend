@@ -19,6 +19,9 @@ import { BabyProfileComponent } from './baby-profile/baby-profile.component';
 import { VerifyOTPComponent } from './verify-otp/verify-otp.component';
 import { EditbabyComponent } from './editbaby/editbaby.component';
 import { ChatComponent } from './chat/chat.component';
+import { OtploginComponent } from './otplogin/otplogin.component';
+import { OtpComponent } from './otp/otp.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {
@@ -85,6 +88,24 @@ const routes: Routes = [
     path: 'chat',
     component: ChatComponent,
     canActivate: [AuthGuardGuard],
+  },
+  {
+    path: 'otplogin',
+    canActivate: [UserBackGuard, RegisterGuard],
+    children: [
+      {
+      path: '',
+    component:OtploginComponent  
+      },
+      {
+        path: 'otp/:phone',
+        component:OtpComponent
+      },
+      {
+        path: 'otp/reset/:token',
+        component:ResetpasswordComponent
+      }
+    ]
   },
 ];
 

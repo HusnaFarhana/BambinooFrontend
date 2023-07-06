@@ -198,11 +198,11 @@ div.content {
 }
 
 .asc {
-  border-bottom: 8px solid #717070; /* Example: upward arrow */
+  border-bottom: 8px solid #717070; 
 }
 
 .desc {
-  border-top: 8px solid #717070; /* Example: downward arrow */
+  border-top: 8px solid #717070; 
 }
 .responsive-image {
   position: fixed;
@@ -216,12 +216,12 @@ div.content {
 
 @media screen and (max-width: 700px) {
   .responsive-image {
-    display: none; /* Hide the image on smaller screens */
+    display: none;
   }
 }
 
 @media screen and (min-width: 701px) and (max-width: 1200px) {
   .responsive-image {
-    width: 150px; /* Adjust the width for medium-sized screens */
+    width: 150px;
   }
 }

@@ -15,10 +15,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/user-interceptor';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { OtploginComponent } from './user/otplogin/otplogin.component';
+import { OtpComponent } from './user/otp/otp.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, PageNotFoundComponent],
+  declarations: [AppComponent, NavbarComponent, PageNotFoundComponent, OtploginComponent, OtpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

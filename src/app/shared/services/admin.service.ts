@@ -125,4 +125,7 @@ export class AdminService {
        .get<any>(environment.apiUrl + 'admin/payments')
       
   }
+  getChatHistory() {
+      return this.http.get<any>(environment.apiUrl + 'admin/chathistory');
+  }
 }

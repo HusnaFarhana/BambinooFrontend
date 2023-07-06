@@ -60,6 +60,35 @@ export class UserService {
         }
       );
   }
+  otpLogin(phone: any, errorfn: (error: any) => void) {
+    return this.http
+      .post<any>(environment.apiUrl + 'otplogin', phone)
+      .subscribe(
+        (response) => {
+          if (response.data) {
+            this.router.navigateByUrl(`/otplogin/otp/${response.data}`);
+          }
+        },
+        (error) => {
+          errorfn(error);
+        }
+      );
+  }
+  otpLoginVerify(data: any, errorfn: (error: any) => void) { 
+    return this.http
+      .post<any>(environment.apiUrl + 'verifyotp', data)
+      .subscribe(
+        (response) => {
+
+          if (response.data.token) {
+           this.router.navigateByUrl(`/otplogin/otp/reset/${response.data.token}`);
+          }
+        },
+        (error) => {
+          errorfn(error);
+        }
+      );
+  }
   logout(data: any) {
     return this.http
       .post<any>(environment.apiUrl + 'logout', { data: data })
@@ -78,7 +107,6 @@ export class UserService {
   mykids(data: any): Observable<any> {
     return this.http.get<any>(environment.apiUrl + `mykids/${data}`);
   }
-
 
   registerKid(data: any) {
     const headers = new HttpHeaders({

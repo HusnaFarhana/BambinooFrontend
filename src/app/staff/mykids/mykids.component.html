@@ -25,7 +25,7 @@
             <li>Active</li>
             <li>Options</li>
           </ul>
-          <ul *ngFor="let kid of data">
+          <ul *ngFor="let kid of getKidsToShow()">
             <li data-label="Image"><img src="{{kid.image}}" style="width: 70px;height: 70px; border-radius: 100%;" alt="image"></li>
             <li data-label="Name">{{kid.name}}</li>
             <li data-label="D.O.B">{{kid.dob}}</li>
@@ -38,7 +38,11 @@
               <button class="btn1" (click)="kidprofile(kid._id)" >View more</button>
             </li>
           </ul>
-         
+          <div class="pagination">
+            <button [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
+            <span>{{ (currentPage - 1) * pageSize + 1 }} - {{ (currentPage - 1) * pageSize + getKidsToShow().length }} of {{ totalKids }}</span>
+            <button [disabled]="isLastPage()" (click)="nextPage()">Next</button>
+          </div>
         </div>
       </div>
       <div *ngIf="error">

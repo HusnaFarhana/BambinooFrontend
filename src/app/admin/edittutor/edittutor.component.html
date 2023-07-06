@@ -1,5 +1,14 @@
+<body>
+  <div class="sidebar">
+    <a routerLink="/admin/adminhome">Home</a>
+    <a class="active" routerLink="/admin/kids">Kids</a>
+    <a routerLink="/admin/tutors">Staffs</a>
+    <a routerLink="/admin/users">Users</a>
+    <a routerLink="/admin/plans">Plans</a>
+    <a routerLink="/admin/payments">Payments</a>
+  </div>
+<div class="content">
 <div class="container">
-  
   <form  class="form" [formGroup]="form" (submit)="submit()">
     <div class="row">
       <label for="name">Name:</label>
@@ -87,3 +96,6 @@
     <button class="btn btn-primary" routerLink="/profile">Back</button>
   </form>
 </div>
+</div>
+  <img src="../../../assets/images/sun-removebg-preview.png" alt="Image" class="responsive-image">
+</body>

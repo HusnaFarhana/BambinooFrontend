@@ -17,6 +17,7 @@ import { VerifyOTPComponent } from './verify-otp/verify-otp.component';
 import { EditbabyComponent } from './editbaby/editbaby.component';
 import { SpinnerComponent } from '../shared/spinner/spinner.component';
 import { ChatComponent } from './chat/chat.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ChatComponent } from './chat/chat.component';
     VerifyOTPComponent,
     EditbabyComponent,
     SpinnerComponent,
-    ChatComponent
+    ChatComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

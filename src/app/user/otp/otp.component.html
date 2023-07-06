@@ -27,26 +27,18 @@
     <div class="hand rgt"></div>
     <h1>Bambino Login</h1>
 
-    <p *ngIf="error" style="color: red; font-style: italic">
-      Invalid Credentials
+    <p 
+   *ngIf="error"
+     style="color: red; font-style: italic">
+      Invalid OTP
     </p>
 
     <div class="form-group">
-      <input required="required" class="form-control" formControlName="email" />
-      <label class="form-label">Email </label>
+      <input required="required" class="form-control" formControlName="otp" />
+      <label class="form-label">OTP </label>
     </div>
     <div class="form-group">
-      <input
-        id="password"
-        type="password"
-        required="required"
-        class="form-control"
-        formControlName="password"
-      />
-      <label class="form-label">Password</label>
-      <button class="btn">Login</button><br>
-      <br>
-      <a routerLink="/otplogin">Login with OTP</a>
+      <button class="btn">Verify OTP</button><br>
     </div>
   </form>
 </body>

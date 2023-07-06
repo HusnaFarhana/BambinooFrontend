@@ -8,15 +8,14 @@
 <div class="chat-container">
   <div class="chat-header">Chat</div>
   <div class="chat-messages" #chatMessages>
-    <div *ngFor="let message of messages" class="chat-message" [ngClass]="{ sent: message.type === 'sent', received: message.type === 'received' }">
-     
-      
+    <div *ngFor="let message of messages" class="chat-message" [ngClass]="{ sent: message.type === 'sent', received: message.type === 'received',admin:message.username==='Admin' }">
       <div class="chat-message-content">
       <div class="message-header">
         <span class="username" *ngIf="message.type === 'received'">{{ message.username }}</span>
       </div>
         <div class="message-content">
-          <p>{{ message.content }}</p>
+            <p *ngIf="message.type === 'system'" class="system-message">{{ message.content }}</p>
+          <p *ngIf="message.type !== 'system'">{{ message.content }}</p>
         </div>
         <div class="message-footer">
           <span class="time">{{ message.time }}</span>

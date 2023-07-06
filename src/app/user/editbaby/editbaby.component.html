@@ -1,7 +1,7 @@
 <div *ngIf="baby" class="baby-profile">
   <form [formGroup]="form" (submit)="submit()">
     <img
-      src="../../../assets/images/41136d4a30ba3cdf15dd58e86bc4144b.jpg"
+      src="{{baby.image}}"
       alt="Baby Avatar"
       class="avatar"
     />
