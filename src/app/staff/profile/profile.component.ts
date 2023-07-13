@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { StaffService } from 'src/app/shared/services/staff.service';
-import { staffModel,PayloadType } from 'src/app/shared/interfaces'; 
+import { iStaffModel,iPayloadType } from 'src/app/shared/interfaces'; 
 
 @Component({
   selector: 'app-profile',
@@ -11,9 +11,9 @@ import { staffModel,PayloadType } from 'src/app/shared/interfaces';
 export class ProfileComponent implements OnInit{
   constructor(private staffService: StaffService) { }
   token: any;
-  decoded: PayloadType;
+  decoded: iPayloadType;
   id: string;
-  data: staffModel;
+  data: iStaffModel;
   
   ngOnInit(): void {
     this.token = localStorage.getItem('staff_token')

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, NavigationExtras } from '@angular/router';
 import Swal from 'sweetalert2';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { environment } from '../../../environment';
 
 @Injectable({
@@ -24,8 +24,6 @@ export class UserService {
       'Content-Type': 'application/json',
     });
     const options = { headers: headers };
-    console.log(data, 'in service');
-
     return this.http
       .post<any>(environment.apiUrl + 'register', data, options)
       .subscribe((response) => {
@@ -35,9 +33,6 @@ export class UserService {
           const navigationExtras: NavigationExtras = {
             queryParams: { user: JSON.stringify(response.result) },
           };
-          console.log('in user service');
-          console.log(navigationExtras);
-
           this.router.navigate(['signup/verify'], navigationExtras);
         }
       });
@@ -74,14 +69,15 @@ export class UserService {
         }
       );
   }
-  otpLoginVerify(data: any, errorfn: (error: any) => void) { 
+  otpLoginVerify(data: any, errorfn: (error: any) => void) {
     return this.http
       .post<any>(environment.apiUrl + 'verifyotp', data)
       .subscribe(
         (response) => {
-
           if (response.data.token) {
-           this.router.navigateByUrl(`/otplogin/otp/reset/${response.data.token}`);
+            this.router.navigateByUrl(
+              `/otplogin/otp/reset/${response.data.token}`
+            );
           }
         },
         (error) => {
@@ -113,17 +109,15 @@ export class UserService {
       'Content-Type': 'application/json',
     });
     const options = { headers: headers };
-    console.log(data, 'in register kid user service');
+
     return this.http
       .post<any>(environment.apiUrl + 'registerKid', data, options)
       .subscribe((response) => {
-        console.log(response);
         this.router.navigateByUrl('/mykids');
       });
   }
 
   verifyPayment(response: any): Observable<any> {
-    console.log('in verify payment user service');
     return this.http.post<any>(environment.apiUrl + 'verifyPayment', response);
   }
 
@@ -142,7 +136,7 @@ export class UserService {
   verify(data: any, errorfn: (error: any) => void) {
     return this.http.post<any>(environment.apiUrl + 'verify', data).subscribe(
       (response) => {
-        console.log(response);
+      
         if (response.success) {
           localStorage.setItem('id_token', response.data.token);
           this.token = response.data.token;
@@ -167,6 +161,28 @@ export class UserService {
         }
       });
   }
+  validateToken(token) {
+
+    return this.http
+      .post<any>(environment.apiUrl + 'validatetoken', { token: token })
+      .subscribe((response) => {
+        if (response.success == 'false') {
+          this.router.navigateByUrl('/otplogin');
+        }
+      });
+  }
+  reset(data) {
+    return this.http
+      .post<any>(environment.apiUrl + 'reset', { data })
+      .subscribe((response) => {
+        if (response.success) {
+          this.router.navigateByUrl('/login');
+        } else {
+          this.router.navigateByUrl('/login');
+        }
+      });
+  }
+  
 }
 
 

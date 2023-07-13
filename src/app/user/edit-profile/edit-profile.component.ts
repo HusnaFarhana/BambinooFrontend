@@ -4,7 +4,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
 import { Validators } from '@angular/forms';
-import { UserPayload, userModel } from 'src/app/shared/interfaces';
+import { iUserPayload, iUserModel } from 'src/app/shared/interfaces';
 import { dateOfBirthValidator } from '../../shared/date-validator';
 import { ProfileService } from 'src/app/shared/services/user.service';
 
@@ -23,8 +23,8 @@ export class EditProfileComponent implements OnInit {
     private profileService: ProfileService
   ) {}
   userid: String = '';
-  data: userModel;
-  decoded: UserPayload;
+  data: iUserModel;
+  decoded: iUserPayload;
   token: any;
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/shared/services/admin.service';  
 import { Router } from '@angular/router';
-import { staffModel } from 'src/app/shared/interfaces';
+import { iStaffModel } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-tutors',
@@ -9,7 +9,7 @@ import { staffModel } from 'src/app/shared/interfaces';
   styleUrls: ['./tutors.component.css'],
 })
 export class TutorsComponent implements OnInit {
-  staffs: staffModel[];
+  staffs: iStaffModel[];
   pageSize: number = 10;
   currentPage: number = 1;
   totalStaffs: number = 0;

@@ -16,7 +16,7 @@ export class AdminService {
 
   adminLogin(data: any, errorfn: (error: any) => void) {
     return this.http
-      .post<any>(environment.apiUrl+'admin/adminLogin', data)
+      .post<any>(environment.apiUrl + 'admin/adminLogin', data)
       .subscribe(
         (response) => {
           localStorage.setItem('admin_token', response.admintoken);
@@ -33,39 +33,24 @@ export class AdminService {
   }
 
   registerTutor(data: any) {
-    
-    
     return this.http
-      .post<any>(environment.apiUrl+'admin/addTutor', data)
+      .post<any>(environment.apiUrl + 'admin/addTutor', data)
       .subscribe((response) => {
         this.router.navigateByUrl('/tutors');
       });
+    }
+
+    getStaff() {
+    return this.http.get(environment.apiUrl + 'admin/getTutors');
   }
   
-  getStaff() {
-    return this.http.get(environment.apiUrl+'admin/getTutors');
-  }
-
   getKids() {
     return this.http.get(environment.apiUrl + 'admin/getkids');
   }
   addplan(data): Observable<any> {
     return this.http.post<any>(environment.apiUrl + 'admin/addplan', data);
   }
-  getStaffProfile(id: any) {
-    return this.http.get<any>(
-      environment.apiUrl + `admin/tutors/tutorprofile/${id}`
-    );
-  }
-  getPlans() {
-    return this.http.get(environment.apiUrl + 'admin/getplans');
-  }
-  getUsers() {
-    return this.http.get(environment.apiUrl + 'admin/getusers');
-  }
-  getdash() {
-    return this.http.get(environment.apiUrl + 'admin/getdash');
-  }
+
 
   private planAddedSubject = new Subject<any>();
 
@@ -74,6 +59,24 @@ export class AdminService {
   emitPlanAdded(plan: any) {
     this.planAddedSubject.next(plan);
   }
+
+  
+  getStaffProfile(id: any) {
+    return this.http.get<any>(
+      environment.apiUrl + `admin/tutors/tutorprofile/${id}`
+    );
+  }
+  getPlans(): Observable<any> {
+    return this.http.get<any>(environment.apiUrl + 'admin/getplans')
+    
+  }
+  getUsers() {
+    return this.http.get(environment.apiUrl + 'admin/getusers');
+  }
+  getdash() {
+    return this.http.get(environment.apiUrl + 'admin/getdash');
+  }
+
 
   getBabyProfile(id: any) {
     return this.http.get<any>(environment.apiUrl + `admin/kids/profile/${id}`);
@@ -103,17 +106,11 @@ export class AdminService {
         this.router.navigateByUrl('/plans');
       });
   }
-  // private editSubject = new Subject<any>();
+  deleteplan(id) {
+    return this.http.get<any>(environment.apiUrl + `admin/deleteplan/${id}`);
+  }
 
-  // editPlan$ = this.editSubject.asObservable();
-
-  // emitEditPlan(plan: any) {
-  //   this.editSubject.next(plan);
-  // }
-
-
-
-  deleteStaff(id:any) {
+  deleteStaff(id: any) {
     return this.http
       .get<any>(environment.apiUrl + `admin/deletestaff/${id}`)
       .subscribe((response) => {
@@ -121,11 +118,9 @@ export class AdminService {
       });
   }
   getPayments() {
-     return this.http
-       .get<any>(environment.apiUrl + 'admin/payments')
-      
+    return this.http.get<any>(environment.apiUrl + 'admin/payments');
   }
   getChatHistory() {
-      return this.http.get<any>(environment.apiUrl + 'admin/chathistory');
+    return this.http.get<any>(environment.apiUrl + 'admin/chathistory');
   }
 }

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { io } from 'socket.io-client';
-import jwt_decode from 'jwt-decode';
+import { io,Socket } from 'socket.io-client';
+import{environment} from '../../../environment'
 import { AdminService } from 'src/app/shared/services/admin.service';
 
 @Component({
@@ -10,21 +10,19 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 })
 export class AdminChatComponent implements OnInit {
   @ViewChild('chatMessages') chatMessages!: ElementRef;
-  private socket: any;
+  private socket: Socket;
   message: string;
-  messages: any[] = [];
+  messages: ChatMessage[] = [];
   username: string = 'Admin';
-  chatHistory: any;
+  chatHistory: ChatMessage[];
   constructor(private adminService: AdminService) {}
   ngOnInit(): void {
-    this.socket = io('http://localhost:4000');
+    this.socket = io(environment.chatUrl);
 
     this.socket.on('connect', () => {
       this.socket.emit('custom-event', 10, 'hi');
     });
     this.socket.on('receive-message', (message: any) => {
-      console.log(message, 'recvd onee in admn');
-
       this.messages.push({
         content: message.content,
         time: new Date().toLocaleTimeString(),
@@ -69,31 +67,7 @@ export class AdminChatComponent implements OnInit {
       chatMessagesElement.scrollTop = chatMessagesElement.scrollHeight;
     });
   }
-  // scrollToBottomWithDelay() {
-  //     const chatMessagesElement = this.chatMessages.nativeElement;
-  //     const scrollHeight = chatMessagesElement.scrollHeight;
-  //     const scrollTop = chatMessagesElement.scrollTop;
-  //     const clientHeight = chatMessagesElement.clientHeight;
-  //     const scrollStep = Math.PI / (scrollHeight / 2);
-  //     let count = 0;
-  //     let scrollPosition = 0;
 
-  //     const scrollAnimation = () => {
-  //       if (chatMessagesElement) {
-  //         count += 1;
-  //         const position =
-  //           scrollTop +
-  //           (scrollHeight - scrollTop) * Math.sin(scrollStep * count);
-  //         chatMessagesElement.scrollTop = position;
-
-  //         if (count < scrollHeight) {
-  //           requestAnimationFrame(scrollAnimation);
-  //         }
-  //       }
-  //     };
-
-  //     requestAnimationFrame(scrollAnimation);
-  // }
   scrollToBottomWithDelay() {
     const chatMessagesElement = this.chatMessages.nativeElement;
     const scrollHeight = chatMessagesElement.scrollHeight;
@@ -125,4 +99,10 @@ export class AdminChatComponent implements OnInit {
   easeOutCubic(t) {
     return 1 - Math.pow(1 - t, 3);
   }
+}
+interface ChatMessage {
+  content: string;
+  time: string;
+  type: string;
+  username?: string;
 }

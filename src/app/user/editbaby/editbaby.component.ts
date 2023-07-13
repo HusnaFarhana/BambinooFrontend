@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators, AbstractControl } from '@angular/forms';
-import { kidModel } from 'src/app/shared/interfaces';
+import { iKidModel } from 'src/app/shared/interfaces';
 import { dateOfBirthValidator } from '../../shared/date-validator';
 @Component({
   selector: 'app-editbaby',
@@ -12,7 +12,7 @@ import { dateOfBirthValidator } from '../../shared/date-validator';
 })
 export class EditbabyComponent implements OnInit {
   babyId: string;
-  baby: kidModel;
+  baby: iKidModel;
   form: FormGroup;
   error:boolean=false;
   constructor(

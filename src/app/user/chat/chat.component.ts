@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { io } from 'socket.io-client';
-import { UserPayload, userModel } from 'src/app/shared/interfaces';
+import { io,Socket } from 'socket.io-client';
+import { iUserPayload, iUserModel } from 'src/app/shared/interfaces';
 import { UserService } from 'src/app/shared/services/user.service';
 import jwt_decode from 'jwt-decode';
-
+import { environment } from '../../../environment';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -12,13 +12,14 @@ import jwt_decode from 'jwt-decode';
 export class ChatComponent implements OnInit {
   @ViewChild('chatMessages') chatMessages!: ElementRef;
   userid: String = '';
-  data: userModel;
-  decoded: UserPayload;
+  data: iUserModel;
+  decoded: iUserPayload;
   token: any;
-  private socket: any;
+  private socket: Socket;
   message: string;
-  messages: any[] = [];
+  messages: ChatMessage[] = [];
   username: string = '';
+ 
   constructor(private userService: UserService) {}
   ngOnInit(): void {
     this.token = localStorage.getItem('id_token');
@@ -30,8 +31,8 @@ export class ChatComponent implements OnInit {
       this.username = this.data.name;
     });
 
-    this.socket = io('http://localhost:4000');
-
+    this.socket = io(environment.chatUrl);
+    console.log(this.socket, 'sockettoiii');
     this.socket.on('connect', () => {
       this.socket.emit('custom-event', 10, 'hi');
       this.socket.emit('user-joined', { username: this.username });
@@ -44,7 +45,7 @@ export class ChatComponent implements OnInit {
       });
       this.scrollToBottom();
     });
-    
+
     this.socket.on('receive-message', (message: any) => {
       this.messages.push({
         content: message.content,
@@ -52,6 +53,7 @@ export class ChatComponent implements OnInit {
         type: 'received',
         username: message.username,
       });
+     
     });
 
     this.scrollToBottom();
@@ -79,4 +81,11 @@ export class ChatComponent implements OnInit {
       chatMessagesElement.scrollTop = chatMessagesElement.scrollHeight;
     });
   }
+
+}
+interface ChatMessage {
+  content: string;
+  time: string;
+  type: string;
+  username?: string;
 }

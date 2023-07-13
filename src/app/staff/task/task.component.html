@@ -1,17 +1,14 @@
 <body>
   <div class="sidebar">
     <a routerLink="/staff/profile">My Profile</a>
-    <a class="active" routerLink="/staff/mykids">Kids</a>
-   
+    <a routerLink="/staff/mykids">Kids</a>
+     <a  routerLink="/staff/mealplan">Meal Plan</a>
+    <a  class="active" routerLink="/staff/routine">Routine</a>
   </div>
   <div class="content">
     <div class="row profile">
       <div class="col-12 blue-box">
-        <!-- <img
-          src="{{data.image}}"
-          alt="Profile Image"
-          class="profile-image"
-        /> -->
+     
         <img
           src="../../../assets/images/green-vine-plant-common-ivy-png-favpng-dvABEvMFr4LT98zM6QfTbKC3q-removebg-preview.png"
           alt=""
@@ -23,61 +20,61 @@
     <tr>
       <td><img src="../../../assets/images/li-icon-1.png.png" alt="Image"></td>
       <td>Arrival and Free Play </td>
-      <td><input type="checkbox"(change)="updateTime($event,'time1')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time1')" [checked]="time1 !== ''"></td>
       <td>{{time1}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-2.png.png" alt="Image"></td>
       <td>Circle Time & Introduction</td>
-      <td><input type="checkbox" (change)="updateTime($event, 'time2')"></td>
+      <td><input type="checkbox" (change)="updateTime($event, 'time2')" [checked]="time2 !== ''"></td>
       <td>{{time2}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-3.png.png" alt="Image"></td>
       <td>Snack Break</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time3')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time3')"[checked]="time3 !== ''"></td>
       <td>{{time3}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-4.png.png" alt="Image"></td>
       <td>Outdoor Play</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time4')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time4')"[checked]="time4 !== ''"></td>
       <td>{{time4}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-5.png.png" alt="Image"></td>
       <td>Exploring the Learning Centres</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time5')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time5')"[checked]="time5 !== ''"></td>
       <td>{{time5}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-6.png.png" alt="Image"></td>
       <td>Storytime, Music & Movement, Role Play</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time6')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time6')"[checked]="time6 !== ''"></td>
       <td>{{time6}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-7.png.png" alt="Image"></td>
       <td>Lunch & Nap</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time7')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time7')"[checked]="time7 !== ''"></td>
       <td>{{time7}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-8.png.png" alt="Image"></td>
       <td>Freshen Up – Outdoor/Evening Activities</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time8')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time8')"[checked]="time8 !== ''"></td>
       <td>{{time8}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-9.png.png" alt="Image"></td>
       <td>Snacks</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time9')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time9')"[checked]="time9 !== ''"></td>
       <td>{{time9}}</td>
     </tr>
       <tr>
       <td><img src="../../../assets/images/li-icon-10.png.png" alt="Image"></td>
       <td>Supervised Play & Departure</td>
-      <td><input type="checkbox"(change)="updateTime($event,'time10')"></td>
+      <td><input type="checkbox"(change)="updateTime($event,'time10')"[checked]="time10 !== ''"></td>
       <td>{{time10}}</td>
     </tr>
   </tbody>

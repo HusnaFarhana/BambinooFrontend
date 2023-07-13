@@ -1,7 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute,Params, Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/services/admin.service';  
-import{staffModel} from '../../shared/interfaces'
+import{iStaffModel} from '../../shared/interfaces'
 @Component({
   selector: 'app-tutorprofile',
   templateUrl: './tutorprofile.component.html',
@@ -9,7 +9,7 @@ import{staffModel} from '../../shared/interfaces'
 })
 export class TutorprofileComponent implements OnInit {
   staffId: string;
-  staff: staffModel;
+  staff: iStaffModel;
   showDeleteConfirmationModal: boolean = false;
   constructor(
     private route: ActivatedRoute,

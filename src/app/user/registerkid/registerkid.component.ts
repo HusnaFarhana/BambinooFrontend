@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
 import jwt_decode from 'jwt-decode';
-import { UserPayload, planModel } from 'src/app/shared/interfaces';
+import { iUserPayload, iPlanModel } from 'src/app/shared/interfaces';
 import { dateOfBirthValidator } from '../../shared/date-validator';
 declare const Razorpay: any;
 
@@ -15,9 +15,9 @@ export class RegisterkidComponent implements OnInit {
   form: FormGroup;
   file: File | null;
   userid: string;
-  decoded: UserPayload;
+  decoded: iUserPayload;
   token: any;
-  plans: planModel[];
+  plans: iPlanModel[];
   error: boolean = false;
 
   constructor(

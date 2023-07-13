@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/shared/services/admin.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { staffModel } from 'src/app/shared/interfaces';
+import { iStaffModel } from 'src/app/shared/interfaces';
 import { dateOfBirthValidator } from '../../shared/date-validator';
 @Component({
   selector: 'app-edittutor',
@@ -12,7 +12,7 @@ import { dateOfBirthValidator } from '../../shared/date-validator';
 })
 export class EdittutorComponent implements OnInit {
   id: string;
-  staff: staffModel;
+  staff: iStaffModel;
   form: FormGroup;
   error: boolean = false;
 

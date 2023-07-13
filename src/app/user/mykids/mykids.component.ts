@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
-import { UserPayload,kidModel } from 'src/app/shared/interfaces';
+import { iUserPayload,iKidModel } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-mykids',
   templateUrl: './mykids.component.html',
@@ -13,10 +13,10 @@ export class MykidsComponent implements OnInit {
  
   
   userid: String = '';
-  decoded: UserPayload;
+  decoded: iUserPayload;
   token: any;
   empty: boolean = false;
-  kids: kidModel[];
+  kids: iKidModel[];
   error = null;
   pageSize: number = 5; 
   currentPage: number = 1; 

@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AdminService } from 'src/app/shared/services/admin.service';
 import { Subscription } from 'rxjs';
-import { ChangeDetectorRef } from '@angular/core';
-import { planModel } from 'src/app/shared/interfaces'; 
+import { iPlanModel } from 'src/app/shared/interfaces'; 
 
 @Component({
   selector: 'app-plans',
@@ -11,16 +10,17 @@ import { planModel } from 'src/app/shared/interfaces';
 })
 export class PlansComponent implements OnInit, OnDestroy {
   showDeleteConfirmationModal: boolean = false;
-  plans: planModel[];
-  pageSize: number = 2; 
-  currentPage: number = 1; 
-  totalPlans: number = 0; 
+  plans: iPlanModel[];
+  pageSize: number = 2;
+  currentPage: number = 1;
+  totalPlans: number = 0;
+  deletePlanId: string = '';
   private planAddedSubscription: Subscription;
-  private editPlanSubscription: Subscription;
+ 
 
   constructor(
     public adminService: AdminService,
-    private changeDetectionRef: ChangeDetectorRef
+  
   ) {}
   ngOnInit(): void {
     this.planAddedSubscription = this.adminService.planAdded$.subscribe(
@@ -28,39 +28,31 @@ export class PlansComponent implements OnInit, OnDestroy {
         this.plans.push(plan);
       }
     );
-    //  this.editPlanSubscription = this.adminService.editPlan$.subscribe(
-    //    (plan) => {
-    //      const index = this.plans.findIndex((p) => p._id === plan._id);
-    //      if (index !== -1) {
-    //        const updatedPlans = [...this.plans];
-    //        updatedPlans[index] = plan;
 
-    //        setTimeout(() => {
-    //          this.plans = updatedPlans;
-    //          this.changeDetectionRef.detectChanges();
-    //        }, 0);
-    //      }
-    //    }
-    //  );
     this.adminService.getPlans().subscribe((response: any) => {
       this.plans = response.plans;
       this.totalPlans = this.plans.length;
 
-      console.log(this.plans,'pleeeens');
+
     });
   }
-  showConfirmationModal() {
-    console.log('clickedd');
-
+  showConfirmationModal(id) {
+    this.deletePlanId = id;
     this.showDeleteConfirmationModal = true;
   }
   cancelDelete() {
     this.showDeleteConfirmationModal = false;
-    console.log('cancelled');
+  
   }
-  confirmDelete() {
+  confirmDelete(id) {
     this.showDeleteConfirmationModal = false;
-    console.log('deleted');
+    this.adminService.deleteplan(id).subscribe(() => {
+    const deletedPlan = this.plans.find((plan) => plan._id === id);
+    if (deletedPlan) {
+      deletedPlan.active = false;
+    }
+  });
+    
   }
 
   ngOnDestroy(): void {

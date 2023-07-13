@@ -12,18 +12,29 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class ResetpasswordComponent implements OnInit {
   form: FormGroup;
   error = null;
-
+  token: string;
+  data: any={};
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
+      this.route.params.subscribe((params: Params) => {
+        this.token = params['token'];
+      });
+    console.log(this.token),'token ready for verification';
+    
+    this.userService.validateToken(this.token)
     this.form = this.formBuilder.group({
-      otp: '',
+      password: '',
     });
   }
   submit(): void {
-   
+    const newpass = this.form.getRawValue();
+    console.log(newpass,'newpass here');
+    this.data.password = newpass;
+    this.data.token=this.token
+   this.userService.reset(this.data);
   }
 }

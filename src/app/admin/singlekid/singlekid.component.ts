@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params,Router } from '@angular/router';
-import { kidModel } from 'src/app/shared/interfaces';
+import { iKidModel } from 'src/app/shared/interfaces';
 import { AdminService } from 'src/app/shared/services/admin.service';
 @Component({
   selector: 'app-singlekid',
@@ -9,7 +9,7 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 })
 export class SinglekidComponent implements OnInit {
   id: string
-  data: kidModel;
+  data: iKidModel;
   constructor(
     private route: ActivatedRoute,
     private adminService:AdminService,

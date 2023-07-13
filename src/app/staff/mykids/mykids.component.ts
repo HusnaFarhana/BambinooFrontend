@@ -2,8 +2,8 @@ import { Component ,OnInit} from '@angular/core';
 import { StaffService } from 'src/app/shared/services/staff.service';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
-import { kidModel } from 'src/app/shared/interfaces'; 
-import { PayloadType } from 'src/app/shared/interfaces'; 
+import { iKidModel } from 'src/app/shared/interfaces'; 
+import { iPayloadType } from 'src/app/shared/interfaces'; 
 
 @Component({
   selector: 'app-mykids',
@@ -13,8 +13,8 @@ import { PayloadType } from 'src/app/shared/interfaces';
 export class MykidsComponent implements OnInit {
   staffid: string = '';
   token: any;
-  decoded: PayloadType;
-  data: kidModel[];
+  decoded: iPayloadType;
+  data: iKidModel[];
   error = null;
   empty: boolean = false;
   pageSize: number = 2;

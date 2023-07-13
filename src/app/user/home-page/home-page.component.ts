@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
-import { UserPayload,planModel } from 'src/app/shared/interfaces';
+import { iUserPayload,iPlanModel } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -12,9 +12,9 @@ export class HomePageComponent implements OnInit {
   constructor(public userService: UserService,
     private router: Router) { }
   name: String = '';
-  decoded: UserPayload;
+  decoded: iUserPayload;
   token: any;
-  plans: planModel[];
+  plans: iPlanModel[];
   ngOnInit() {
     this.userService.getHome().subscribe((response: any) => {
       this.plans = response.plans;

@@ -1,4 +1,4 @@
-export type staffModel = {
+export interface iStaffModel  {
   _id: string;
   name: string;
   email: string;
@@ -9,10 +9,10 @@ export type staffModel = {
   contact: string;
   image: string;
   token: string;
-  kids: kidModel[];
+  kids: iKidModel[];
 };
 
-export type kidModel = {
+export interface iKidModel  {
   _id: string;
   name: string;
   dob: string;
@@ -36,43 +36,44 @@ export type kidModel = {
   subscription: {
     date: Date;
     expDate: Date;
-    id: planModel;
+    id: iPlanModel;
     paymentid:string
   };
   image: string;
-  staff: staffModel;
+  staff: iStaffModel;
 };
 
-export type planModel = {
+export interface iPlanModel  {
   name: string;
   description: string;
   athome: string;
   ageGroup: string;
   price: number;
   users: string[];
+  active:Boolean,
   _id: string;
 };
 
-export type userModel = {
+export interface iUserModel  {
   _id: string;
   name: string;
   email: string;
   dob: string;
   contact: string;
   adhar: string;
-  mykids: kidModel[];
+  mykids: iKidModel[];
   password: string;
   verified: string;
   address: string;
   token: string;
 };
-export type PayloadType = {
+export interface iPayloadType  {
   name: string;
   staffid: string;
   iat: number;
   exp: number;
 };
-export type UserPayload = {
+export interface iUserPayload  {
   name: string;
   userid: string;
   iat: number;

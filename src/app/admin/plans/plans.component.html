@@ -14,20 +14,22 @@
       <div class="list">
         <ul>
           <li>Name</li>
+          <li>Active</li>
           <li>Details</li>
-          <li>Age</li>
+         
           <li>Price</li>
           <li>Options</li>
         </ul>
         <ul *ngFor="let plan of getPlansToShow()">
           <li data-label="Name">{{ plan.name }}</li>
+          <li data-label="Active">{{ plan.active }}</li>
           <li data-label="Details">{{ plan.description }}</li>
-          <li data-label="Details">{{ plan.ageGroup }}</li>
+      
           <li data-label="Price">{{ plan.price }}</li>
           <li data-label="Options">
             <div class="btns">
               <button class="btn1" routerLink="edit/{{plan._id}}">Edit</button>
-              <button class="btn2" (click)="showConfirmationModal()">
+              <button class="btn2" (click)="showConfirmationModal(plan._id)">
                 Delete
               </button>
             </div>
@@ -68,7 +70,7 @@
             <button
               type="button"
               class="btn btn-danger"
-              (click)="confirmDelete()"
+              (click)="confirmDelete(deletePlanId)"
             >
               Yes
             </button>

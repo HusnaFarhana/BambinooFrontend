@@ -49,4 +49,5 @@ export class StaffService {
   singleKid(id) {
      return this.http.get<any>(environment.apiUrl + `staff/singlekid/${id}`);
   }
+
 }

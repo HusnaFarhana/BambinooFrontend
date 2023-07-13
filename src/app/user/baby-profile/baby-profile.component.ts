@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
-import { kidModel } from 'src/app/shared/interfaces';
+import { iKidModel } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-baby-profile',
   templateUrl: './baby-profile.component.html',
@@ -9,7 +9,7 @@ import { kidModel } from 'src/app/shared/interfaces';
 })
 export class BabyProfileComponent implements OnInit {
   babyId: string;
-  baby: kidModel;      
+  baby: iKidModel;      
   showEditModal: boolean = false;
   showDeleteConfirmationModal: boolean = false;
 

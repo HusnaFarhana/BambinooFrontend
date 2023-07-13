@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -16,21 +15,22 @@ const routes: Routes = [
   },
   {
     path: 'staff',
-    loadChildren: () => 
-      import('./staff/staff-routing.module').then((b)=>b.StaffRoutingModule)
+    loadChildren: () =>
+      import('./staff/staff-routing.module').then((b) => b.StaffRoutingModule),
+  },
+  {
+    path: 'page-not-found',
+    component: PageNotFoundComponent,
   },
   // {
-  //   path: 'page-not-found',
-  //   component:PageNotFoundComponent
-  // },
-  // {
   //   path: '**',
-  // redirectTo:'page-not-found'  
-  // }
+  //   redirectTo: 'page-not-found',
+  //   pathMatch: 'full',
+  // },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

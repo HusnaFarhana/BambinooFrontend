@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/shared/services/admin.service';
 import { Router } from '@angular/router';
-import { kidModel } from 'src/app/shared/interfaces';
+import { iKidModel } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-kids',
@@ -9,7 +9,7 @@ import { kidModel } from 'src/app/shared/interfaces';
   styleUrls: ['./kids.component.css'],
 })
 export class KidsComponent implements OnInit {
-  kids: kidModel[];
+  kids: iKidModel[];
   pageSize: number = 5;
   currentPage: number = 1;
   totalKids: number = 0;

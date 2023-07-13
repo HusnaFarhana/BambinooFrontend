@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
 import jwt_decode from 'jwt-decode';
-import { UserPayload,userModel } from 'src/app/shared/interfaces';
+import { iUserPayload,iUserModel } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -10,8 +10,8 @@ import { UserPayload,userModel } from 'src/app/shared/interfaces';
 export class ProfileComponent implements OnInit {
   constructor(private userService: UserService) {}
   userid: String = '';
-  data:userModel;
-  decoded: UserPayload;
+  data:iUserModel;
+  decoded: iUserPayload;
   token: any;
   ngOnInit(): void {
     this.token = localStorage.getItem('id_token');

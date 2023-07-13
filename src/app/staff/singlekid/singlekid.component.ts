@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { StaffService } from 'src/app/shared/services/staff.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { kidModel } from 'src/app/shared/interfaces';
+import { iKidModel } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-singlekid',
   templateUrl: './singlekid.component.html',
@@ -9,7 +9,7 @@ import { kidModel } from 'src/app/shared/interfaces';
 })
 export class SinglekidComponent implements OnInit {
   id: string;
-  data: kidModel;
+  data: iKidModel;
   constructor(
     private staffService: StaffService,
     private route: ActivatedRoute,

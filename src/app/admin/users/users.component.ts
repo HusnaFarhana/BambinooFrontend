@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { userModel } from 'src/app/shared/interfaces';
+import { iUserModel } from 'src/app/shared/interfaces';
 import { AdminService } from 'src/app/shared/services/admin.service';  
 
 @Component({
@@ -8,7 +8,7 @@ import { AdminService } from 'src/app/shared/services/admin.service';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-  users: userModel[];
+  users: iUserModel[];
   pageSize: number = 5;
   currentPage: number = 1;
   totalUsers: number = 0;
