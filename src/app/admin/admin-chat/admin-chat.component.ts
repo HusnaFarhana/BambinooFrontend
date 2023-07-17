@@ -17,7 +17,7 @@ export class AdminChatComponent implements OnInit {
   chatHistory: ChatMessage[];
   constructor(private adminService: AdminService) {}
   ngOnInit(): void {
-    this.socket = io(environment.chatUrl);
+    this.socket = io(environment.apiUrl);
 
     this.socket.on('connect', () => {
       this.socket.emit('custom-event', 10, 'hi');

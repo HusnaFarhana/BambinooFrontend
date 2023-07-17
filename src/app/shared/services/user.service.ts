@@ -14,8 +14,8 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) {}
   getHome(): Observable<any> {
-    // return this.http.get<any>(environment.apiUrl + `home`);
-    return this.http.get<any>('/api/home');
+    return this.http.get<any>(environment.apiUrl + `home`);
+    
   }
   getNav(id) {
     return this.http.get<any>(environment.apiUrl + `nav/${id}`);

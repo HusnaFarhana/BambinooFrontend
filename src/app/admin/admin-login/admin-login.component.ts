@@ -30,7 +30,7 @@ export class AdminLoginComponent implements OnInit {
     if (admin.email == '' || admin.password == '' ) {
       Swal.fire('Error', 'Please enter all the fields', 'error');
     } else {
-      console.log(admin + 'otw service');
+      console.log(admin , 'otw service');
 
       this.adminService.adminLogin(admin,(error:any)=>{this.error=error.message});
     }

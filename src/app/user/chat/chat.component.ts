@@ -31,7 +31,7 @@ export class ChatComponent implements OnInit {
       this.username = this.data.name;
     });
 
-    this.socket = io(environment.chatUrl);
+    this.socket = io(environment.apiUrl);
     console.log(this.socket, 'sockettoiii');
     this.socket.on('connect', () => {
       this.socket.emit('custom-event', 10, 'hi');
