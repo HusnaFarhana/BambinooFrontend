@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs';
@@ -33,8 +33,12 @@ export class AdminService {
   }
 
   registerTutor(data: any) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      const options = { headers: headers };
     return this.http
-      .post<any>(environment.apiUrl + 'admin/addTutor', data)
+      .post<any>(environment.apiUrl + 'admin/addTutor', data, options)
       .subscribe((response) => {
         this.router.navigateByUrl('/tutors');
       });
