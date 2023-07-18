@@ -26,16 +26,12 @@ const routes: Routes = [
   {
     path: '',
     component: AdminLoginComponent,
-    canActivate: [AdminBackGuard,
-      ConsecutiveGuard
-    ],
+    canActivate: [AdminBackGuard, ConsecutiveGuard],
   },
   {
     path: 'adminhome',
     component: AdminHomeComponent,
-    canActivate: [AdminGuard,
-      ConsecutiveGuard
-    ],
+    canActivate: [AdminGuard, ConsecutiveGuard],
   },
   {
     path: 'tutors',
@@ -63,6 +59,7 @@ const routes: Routes = [
   {
     path: 'plans',
     component: PlansComponent,
+    canActivate: [AdminGuard],
     children: [
       {
         path: 'addplan',
@@ -108,8 +105,8 @@ const routes: Routes = [
   },
   {
     path: 'admin-chat',
-    component:AdminChatComponent
-  }
+    component: AdminChatComponent,
+  },
 ];
 
 @NgModule({

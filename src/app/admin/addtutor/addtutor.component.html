@@ -17,14 +17,14 @@
           </div>
           <div class="field-group">
             <label for="email">Email:</label><br />
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" formControlName="email"/>
           </div>
         </div>
         <div class="row">
           <div class="field-group">
             <label for="password">Password:</label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               formControlName="password"
@@ -77,6 +77,15 @@
               id="adharNo"
               name="adharNo"
               formControlName="adharNo"
+            />
+          </div>
+          <div class="field-group">
+            <label for="image">Image:</label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              formControlName="image"
             />
           </div>
         </div>

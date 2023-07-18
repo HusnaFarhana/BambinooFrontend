@@ -79,7 +79,7 @@ export class RegisterkidComponent implements OnInit {
              formData.paymentid = response.razorpay_payment_id;
             this.userService.registerKid(formData);
           } else {
-            // Payment failed
+         
             console.log('Payment failed');
           }
         },
