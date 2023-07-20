@@ -11,11 +11,19 @@ import { environment } from '../../../environment';
 export class UserService {
   isAuthenticated: boolean = false;
   token: string = '';
-
+  isChatPageOpen = false;
   constructor(private http: HttpClient, private router: Router) {}
   getHome(): Observable<any> {
     return this.http.get<any>(environment.apiUrl + `home`);
-    
+  }
+  onChatPageOpen() {
+    this.isChatPageOpen = true;
+  }
+  private notificationSubject = new Subject<string>();
+  notification$ = this.notificationSubject.asObservable();
+
+  showNotification(message: string) {
+    this.notificationSubject.next(message);
   }
   getNav(id) {
     return this.http.get<any>(environment.apiUrl + `nav/${id}`);
@@ -137,7 +145,6 @@ export class UserService {
   verify(data: any, errorfn: (error: any) => void) {
     return this.http.post<any>(environment.apiUrl + 'verify', data).subscribe(
       (response) => {
-      
         if (response.success) {
           localStorage.setItem('id_token', response.data.token);
           this.token = response.data.token;
@@ -163,7 +170,6 @@ export class UserService {
       });
   }
   validateToken(token) {
-
     return this.http
       .post<any>(environment.apiUrl + 'validatetoken', { token: token })
       .subscribe((response) => {
@@ -183,7 +189,9 @@ export class UserService {
         }
       });
   }
-  
+  getChatHistory() {
+    return this.http.get<any>(environment.apiUrl + 'admin/chathistory');
+  }
 }
 
 

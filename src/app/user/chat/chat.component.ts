@@ -19,9 +19,12 @@ export class ChatComponent implements OnInit {
   message: string;
   messages: ChatMessage[] = [];
   username: string = '';
- 
+  chatHistory: ChatMessage[];
+
   constructor(private userService: UserService) {}
   ngOnInit(): void {
+    this.userService.onChatPageOpen();
+
     this.token = localStorage.getItem('id_token');
     this.decoded = jwt_decode(this.token);
     this.userid = this.decoded.userid;
@@ -53,10 +56,18 @@ export class ChatComponent implements OnInit {
         type: 'received',
         username: message.username,
       });
-     
+      if (!this.isOnChatComponent()) {
+        this.userService.showNotification('New chat message received!');
+      }
     });
 
     this.scrollToBottom();
+  }
+  ngOnDestroy(): void {
+    this.userService.isChatPageOpen = false;
+  }
+  private isOnChatComponent(): boolean {
+    return window.location.pathname.includes('/chat');
   }
   send(message) {
     if (message.trim() === '') {
@@ -75,13 +86,55 @@ export class ChatComponent implements OnInit {
     this.message = '';
     this.scrollToBottom();
   }
+
+  loadChatHistory() {
+    this.userService.getChatHistory().subscribe((response) => {
+      console.log(response);
+
+      this.messages = response.chat;
+    });
+    setTimeout(() => {
+      this.scrollToBottomWithDelay();
+    }, 100);
+  }
+  scrollToBottomWithDelay() {
+    const chatMessagesElement = this.chatMessages.nativeElement;
+    const scrollHeight = chatMessagesElement.scrollHeight;
+
+    const animationDuration = 500; // Duration of the scroll animation in milliseconds
+    const startTime = Date.now();
+    const startPosition = chatMessagesElement.scrollTop;
+    const targetPosition = scrollHeight - chatMessagesElement.clientHeight;
+
+    const scrollAnimation = () => {
+      const currentTime = Date.now();
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / animationDuration, 1); // Ensure progress is between 0 and 1
+      const easedProgress = this.easeOutCubic(progress); // Apply easing function for smoother animation
+
+      const position =
+        startPosition + (targetPosition - startPosition) * easedProgress;
+      chatMessagesElement.scrollTop = position;
+
+      if (progress < 1) {
+        requestAnimationFrame(scrollAnimation);
+      }
+    };
+
+    requestAnimationFrame(scrollAnimation);
+  }
+
+  // Easing function: Cubic easing out
+  easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
   scrollToBottom() {
     setTimeout(() => {
       const chatMessagesElement = this.chatMessages.nativeElement;
       chatMessagesElement.scrollTop = chatMessagesElement.scrollHeight;
     });
   }
-
 }
 interface ChatMessage {
   content: string;

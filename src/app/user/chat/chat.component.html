@@ -9,10 +9,11 @@
   <div class="chat-header">Chat</div>
   <div class="chat-messages" #chatMessages>
    
-    <div *ngFor="let message of messages" class="chat-message" [ngClass]="{ sent: message.type === 'sent', received: message.type === 'received',admin:message.username==='Admin' }">
+    <div *ngFor="let message of messages" class="chat-message" [ngClass]="{ sent: message.username === this.username, received: message.type === 'received',admin:message.username==='Admin' }">
       <div class="chat-message-content">
       <div class="message-header">
         <span class="username" *ngIf="message.type === 'received'">{{ message.username }}</span>
+        <span class="username" *ngIf="message.type === 'sent'">{{ message.username }}</span>
       </div>
         <div class="message-content">
             <p *ngIf="message.type === 'system'" class="system-message">{{ message.content }}</p>

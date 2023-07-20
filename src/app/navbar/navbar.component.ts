@@ -25,11 +25,14 @@ export class NavbarComponent implements OnInit {
   id: any;
   admintoken: any;
   stafftoken: any;
+  notification: string = '';
   ngOnInit() {
     this.token = localStorage.getItem('id_token');
     this.admintoken = localStorage.getItem('admin_token');
     this.stafftoken = localStorage.getItem('staff_token');
-
+    this.userService.notification$.subscribe((message) => {
+      this.notification = message;
+    });
     if (this.token) {
       this.userService.isAuthenticated = true;
       this.decoded = jwt_decode(this.token);
