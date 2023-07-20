@@ -57,6 +57,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         username: message.username,
       });
       if (!this.isOnChatComponent()) {
+
         this.userService.showNotification('New chat message received!');
       }
     });
@@ -64,6 +65,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.scrollToBottom();
   }
   ngOnDestroy(): void {
+    this.userService.showNotification('');
     this.userService.isChatPageOpen = false;
   }
 
@@ -96,13 +98,13 @@ export class ChatComponent implements OnInit, OnDestroy {
     });
     setTimeout(() => {
       this.scrollToBottomWithDelay();
-    }, 100);
+    }, 200);
   }
   scrollToBottomWithDelay() {
     const chatMessagesElement = this.chatMessages.nativeElement;
     const scrollHeight = chatMessagesElement.scrollHeight;
 
-    const animationDuration = 500; // Duration of the scroll animation in milliseconds
+    const animationDuration = 500; 
     const startTime = Date.now();
     const startPosition = chatMessagesElement.scrollTop;
     const targetPosition = scrollHeight - chatMessagesElement.clientHeight;
@@ -110,8 +112,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     const scrollAnimation = () => {
       const currentTime = Date.now();
       const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / animationDuration, 1); // Ensure progress is between 0 and 1
-      const easedProgress = this.easeOutCubic(progress); // Apply easing function for smoother animation
+      const progress = Math.min(elapsed / animationDuration, 1); 
+      const easedProgress = this.easeOutCubic(progress); 
 
       const position =
         startPosition + (targetPosition - startPosition) * easedProgress;
@@ -125,7 +127,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     requestAnimationFrame(scrollAnimation);
   }
 
-  // Easing function: Cubic easing out
+
   easeOutCubic(t) {
     return 1 - Math.pow(1 - t, 3);
   }

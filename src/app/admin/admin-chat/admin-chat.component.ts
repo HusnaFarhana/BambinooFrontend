@@ -31,7 +31,7 @@ export class AdminChatComponent implements OnInit {
       });
     });
     this.scrollToBottom();
-    console.log(this.username, '4565');
+  
   }
 
   send(message) {
@@ -59,7 +59,7 @@ export class AdminChatComponent implements OnInit {
     });
     setTimeout(() => {
       this.scrollToBottomWithDelay();
-    }, 50);
+    }, 200);
   }
   scrollToBottom() {
     setTimeout(() => {
@@ -72,7 +72,7 @@ export class AdminChatComponent implements OnInit {
     const chatMessagesElement = this.chatMessages.nativeElement;
     const scrollHeight = chatMessagesElement.scrollHeight;
 
-    const animationDuration = 500; // Duration of the scroll animation in milliseconds
+    const animationDuration = 500; 
     const startTime = Date.now();
     const startPosition = chatMessagesElement.scrollTop;
     const targetPosition = scrollHeight - chatMessagesElement.clientHeight;
