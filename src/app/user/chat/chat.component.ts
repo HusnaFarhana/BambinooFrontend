@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild,OnDestroy, ElementRef } from '@angular/core';
 import { io,Socket } from 'socket.io-client';
 import { iUserPayload, iUserModel } from 'src/app/shared/interfaces';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -9,7 +9,7 @@ import { environment } from '../../../environment';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild('chatMessages') chatMessages!: ElementRef;
   userid: String = '';
   data: iUserModel;
@@ -66,6 +66,7 @@ export class ChatComponent implements OnInit {
   ngOnDestroy(): void {
     this.userService.isChatPageOpen = false;
   }
+
   private isOnChatComponent(): boolean {
     return window.location.pathname.includes('/chat');
   }

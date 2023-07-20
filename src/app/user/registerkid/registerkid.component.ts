@@ -71,7 +71,7 @@ export class RegisterkidComponent implements OnInit {
         name: 'Bambino Daycare',
         description: 'Registration Fee',
         image:
-          'https://res.cloudinary.com/doao8efwv/image/upload/v1688191024/Logo_hd10no.png', // URL of your logo image
+          'https://res.cloudinary.com/doao8efwv/image/upload/v1688191024/Logo_hd10no.png',
         handler: (response: any) => {
         
           console.log(response, 'reesponse');
@@ -84,9 +84,9 @@ export class RegisterkidComponent implements OnInit {
           }
         },
         prefill: {
-          name: '', // Prefill customer name
-          email: '', // Prefill customer email
-          contact: '', // Prefill customer contact number
+          name: '', 
+          email: '', 
+          contact: '', 
         },
       };
 

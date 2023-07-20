@@ -7,6 +7,8 @@
   <div class="content">
 <div class="chat-container">
   <div class="chat-header">Chat</div>
+  <button  class="btn btn-primary" (click)="loadChatHistory()">Load Chat History</button>
+
   <div class="chat-messages" #chatMessages>
    
     <div *ngFor="let message of messages" class="chat-message" [ngClass]="{ sent: message.username === this.username, received: message.type === 'received',admin:message.username==='Admin' }">
